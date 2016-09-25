@@ -49,8 +49,13 @@ class LocationsSeed extends Seeder
                         if(isset($territory['locations']['factory'])) {
                             /*$max_X = $territory['locations']['factory'][0];
                             $max_Y = $territory['locations']['factory'][1];*/
-                            $max_X = 5;
-                            $max_Y = 5;
+                            if(\Illuminate\Support\Facades\Config::get('env') != 'production') {
+                                $max_X = 5;
+                                $max_Y = 5;
+                            } else {
+                                $max_X = $territory['locations']['factory'][0];
+                                $max_Y = $territory['locations']['factory'][1];
+                            }
                             $startLayer = new \App\LocationLayer([
                                 "hash" => $terr->hash.".base_layer",
                                 "title" => $territory["title"],

@@ -925,7 +925,8 @@
         },
         "nb": {
           "nord": "w_golden_plains",
-          "west": "w_hell_swamp"
+          "west": "w_hell_swamp",
+          "portal": "east.e_lokas_checkers"
         }
       },
       "w_the_carcass": {
@@ -1804,14 +1805,14 @@
         "title": "Рокочущие перевалы",
         "desc": "",
         "cond": {},
-        "climate": "hot",
+        "climate": "medium",
         "levels": [
-          1,
-          10
+          40,
+          43
         ],
         "locations": {
           "factory": [
-            30,
+            20,
             30
           ],
           "layers": {
@@ -1823,10 +1824,71 @@
             "objects": {},
             "black_list": [],
             "places": {
+              "cloud canyon": {
+                "title": "Облачный каньон",
+                "locations_list": []
+              },
+              "stone forest": {
+                "title": "Каменный лес",
+                "locations_list": []
+              },
+              "highlands": {
+                "title": "Высокогорье",
+                "locations_list": []
+              },
+              "strengthen clan telegraph": {
+                "title": "Укрепления клана темногривых",
+                "locations_list": []
+              },
+              "shelter of last twilight": {
+                "title": "Приют последних сумерек",
+                "locations_list": []
+              },
+              "cliffs of centaurs": {
+                "title": "Утесы кентавров",
+                "locations_list": []
+              },
+              "rococoa river": {
+                "title": "Рокочущая река",
+                "locations_list": []
+              },
+              "settlement of river fog": {
+                "title": "Поселение речного тумана",
+                "locations_list": []
+              },
+              "rococoa Riptide": {
+                "title": "Рокочущая быстрина",
+                "locations_list": []
+              },
+              "pass snow lions": {
+                "title": "Перевал снежных львов",
+                "locations_list": []
+              },
+              "settlement of gnolls": {
+                "title": "Поселение гноллов",
+                "locations_list": []
+              },
+              "rumbling rapids": {
+                "title": "Рокочущие пороги",
+                "locations_list": []
+              },
+              "": {
+                "title": "Логово змееглазых",
+                "locations_list": []
+              },
+              "": {
+                "title": "Расколотые скалы",
+                "locations_list": []
+              }
             },
             "titles": {
             }
           }
+        },
+        "nb": {
+          "nord": "e_ancient_forest",
+          "south": "e_steppe_belt",
+          "portal": "west.w_long_sand"
         }
       },
       "e_steppe_belt": {
