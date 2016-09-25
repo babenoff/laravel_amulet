@@ -1,0 +1,52 @@
+
+// Fonts
+@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
+
+// Variables
+@import "variables";
+
+// Bootstrap
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+/*body {
+  background: url("../images/bg.jpg");
+}*/
+
+.list-group li {
+  list-style: none;
+}
+
+.panel-info, .panel-rating, .panel-more {
+  float: left;
+  margin: 0 10px;
+}
+
+.trees {
+  /*margin-top: -56px;
+  margin-left: 233px;*/
+  width: 50px;
+  height: 15px;
+  background-image: url('../images/trees/trees.png');
+}
+
+.tree {
+  margin-top: -5px;
+  position: absolute;
+}
+
+.level_up {
+  color: #EF9502;
+  margin-top: -67px;
+  margin-left: 1px;
+  position: absolute;
+  font-size: 22px;
+  font-family: comic sans ms;
+  text-shadow: 1px 1px 2px #000;
+}
+
+.menu {
+  cursor: pointer;
+}
+.bold {
+  font-weight: bold;
+}

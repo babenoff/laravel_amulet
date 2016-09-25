@@ -1,0 +1,2320 @@
+{
+  "west": {
+    "title": "Западный континент",
+    "races": [
+      "elf",
+      "nui"
+    ],
+    "territories": {
+      "w_solzreed": {
+        "title": "Полуостров солрид",
+        "desc": "",
+        "cond": {},
+        "climate": "medium",
+        "levels": [
+          1,
+          10
+        ],
+        "locations": {
+          "factory": [
+            30,
+            30
+          ],
+          "layers": {
+            "water": {},
+            "roads": {},
+            "plain": {},
+            "wood": {},
+            "hills": {},
+            "objects": {},
+            "black_list": [],
+            "places": {
+              "half_moon_castle": {
+                "title": "Крепость полумесяца",
+                "locations_list": [
+                  "0x0",
+                  "0x1",
+                  "0x2",
+                  "1x0",
+                  "1x1",
+                  "1x2"
+                ],
+                "nb": {
+                  "nord": "w_solzreed_base_layer"
+                }
+              },
+              "salrion": {
+                "title": "Врата солриона",
+                "locations_list": []
+              },
+              "garduei": {
+                "title": "Гардуэй",
+                "locations_list": []
+              },
+              "pastures": {
+                "title": "Пастбища",
+                "locations_list": []
+              },
+              "ancient_megalits": {
+                "title": "Древние мегалиты",
+                "locations_list": []
+              },
+              "houpfort": {
+                "title": "Хоупфорт",
+                "locations_list": []
+              },
+              "houpfort_surr": {
+                "title": "Окресности Хоупфотра",
+                "locations_list": []
+              },
+              "farms": {
+                "title": "Фермы",
+                "locations_list": []
+              },
+              "ancient_fort": {
+                "title": "Старый форт",
+                "locations_list": []
+              },
+              "enchanted_hollows": {
+                "title": "Зачарованная лощина",
+                "locations_list": []
+              },
+              "ruins_of_edification": {
+                "title": "Руины назидания",
+                "locations_list": []
+              },
+              "milky_river": {
+                "title": "Молочная река",
+                "locations_list": []
+              },
+              "riverton": {
+                "title": "Ривертон",
+                "locations_list": []
+              }
+            },
+            "titles": {
+            }
+          }
+        },
+        "nb": {
+          "west": "w_lilyut_meadow",
+          "swest": "w_garangdol_plains"
+        }
+      },
+      "w_gweonid_forest": {
+        "title": "Лес Гвинедар",
+        "desc": "",
+        "cond": {},
+        "climate": "medium",
+        "levels": [
+          1,
+          10
+        ],
+        "locations": {
+          "factory": [
+            25,
+            25
+          ],
+          "layers": {
+            "water": {},
+            "roads": {},
+            "plain": {},
+            "wood": {},
+            "hills": {},
+            "objects": {},
+            "places": {
+              "valley_of_thorns": {
+                "title": "Долина шипов",
+                "locations_list": []
+              },
+              "dead_swamp": {
+                "title": "Мертвая трясина",
+                "locations_list": []
+              },
+              "forest_watch": {
+                "title": "Лесной дозор",
+                "locations_list": []
+              },
+              "lans_of_fores_people": {
+                "title": "Земли лесного народа",
+                "locations_list": []
+              },
+              "ruins_whispering_wind": {
+                "title": "Руины шепчущего ветра",
+                "locations_list": []
+              },
+              "forbidden_gorge": {
+                "title": "Запретное ущелье",
+                "locations_list": []
+              },
+              "brown_abode": {
+                "title": "Озерная обитель",
+                "locations_list": []
+              },
+              "sanctuary_of_spirits": {
+                "title": "Святилище духов",
+                "locations_list": []
+              },
+              "forgotten_town": {
+                "title": "Забытый город",
+                "locations_list": []
+              },
+              "gvinedal_lake": {
+                "title": "Озеро гвинедаль",
+                "locations_list": []
+              },
+              "forest_owner": {
+                "title": "Хозяин леса",
+                "locations_list": []
+              },
+              "restless_grove": {
+                "title": "Беспокойная роща",
+                "locations_list": []
+              },
+              "forest_shelter": {
+                "title": "Лесной приют",
+                "locations_list": []
+              },
+              "long_valley": {
+                "title": "Долгая долина",
+                "locations_list": []
+              },
+              "drifter": {
+                "title": "Приют усталого путника",
+                "locations_list": []
+              },
+              "harven_camp": {
+                "title": "Лагерь харвен",
+                "locations_list": []
+              }
+            }
+          }
+        },
+        "nb": {
+          "east": "w_lilyut_meadow"
+        }
+      },
+      "w_lilyut_meadow": {
+        "title": "Холмы Лилиот",
+        "desc": "",
+        "climate": "medium",
+        "levels": [
+          10,
+          15
+        ],
+        "locations": {
+          "factory": [
+            30,
+            20
+          ],
+          "layers": {
+            "places": {
+              "sawmill": {
+                "title": "Лесопилка",
+                "locations_list": []
+              },
+              "ruined_castle": {
+                "title": "Разрушенная крепость",
+                "locations_list": []
+              },
+              "east_hills": {
+                "title": "Восточное нагорье",
+                "locations_list": []
+              },
+              "stone_bridge": {
+                "title": "Стоунбридж",
+                "locations_list": []
+              },
+              "beer_den": {
+                "title": "Медвежье логово",
+                "locations_list": []
+              },
+              "east_mines": {
+                "title": "Восточные рудники",
+                "locations_list": []
+              },
+              "tarren_river": {
+                "title": "Река таррен",
+                "locations_list": []
+              },
+              "crossroads": {
+                "title": "Перекресток",
+                "locations_list": []
+              },
+              "hollow_winds": {
+                "title": "Лощина ветров",
+                "locations_list": []
+              },
+              "windilou": {
+                "title": "Виндилоу",
+                "locations_list": []
+              },
+              "ronwenton": {
+                "title": "Ронвентон",
+                "locations_list": []
+              },
+              "ronwen_castle": {
+                "title": "Крепость ронвен",
+                "locations_list": []
+              },
+              "guard_post": {
+                "title": "Строжевой пост",
+                "locations_list": []
+              },
+              "liliot_river": {
+                "title": "Река лилиот",
+                "locations_list": []
+              },
+              "earth_scars": {
+                "title": "Рубцы земли",
+                "locations_list": []
+              },
+              "rift": {
+                "title": "Разлом",
+                "locations_list": []
+              },
+              "ridjou": {
+                "title": "Риджоу",
+                "locations_list": []
+              },
+              "west_mines": {
+                "title": "Западные рудники",
+                "locations_list": []
+              }
+            }
+          }
+        },
+        "nb": {
+          "west": "w_gweonid_forest",
+          "east": "w_solzreed",
+          "south": "w_garangdol_plains"
+        }
+      },
+      "w_garangdol_plains": {
+        "title": "Земля говорящих камней",
+        "desc": "",
+        "climate": "medium",
+        "levels": [
+          15,
+          20
+        ],
+        "locations": {
+          "factory": [
+            10,
+            30
+          ],
+          "layers": {
+            "places": {
+              "settlement_of_stone_brotherhood": {
+                "title": "Поселение братства камня",
+                "locations_list": []
+              },
+              "stone_highlands": {
+                "title": "Каменное нагорье",
+                "locations_list": []
+              },
+              "sandbar": {
+                "title": "Песчаная отмель",
+                "locations_list": []
+              },
+              "buffalo_pasture": {
+                "title": "Пастбища бизонов",
+                "locations_list": []
+              },
+              "sandheven": {
+                "title": "Сэндхевен",
+                "locations_list": []
+              },
+              "split_coast": {
+                "title": "Расколотое побережье",
+                "locations_list": []
+              },
+              "parched_oasis": {
+                "title": "Пересохний оазис",
+                "locations_list": []
+              },
+              "stone_quarry": {
+                "title": "Каменный карьер",
+                "locations_list": []
+              },
+              "fort_of_black_mask": {
+                "title": "Форт черой маски",
+                "locations_list": []
+              },
+              "camp_of_roister": {
+                "title": "Лагерь Ройстера",
+                "locations_list": []
+              },
+              "mouth_river_lilot": {
+                "title": "Устье реки Лилиот",
+                "locations_list": []
+              },
+              "cementery_of_colosses": {
+                "title": "Кладбище колосов",
+                "locations_list": []
+              },
+              "bastion_bloody_fog": {
+                "title": "Бастион кровавого тумана",
+                "locations_list": []
+              },
+              "bloody_rock": {
+                "title": "Кровавые утесы",
+                "locations_list": []
+              },
+              "sleeping_gorge": {
+                "title": "Ущелье спящего",
+                "locations_list": []
+              },
+              "valley_of_3wind": {
+                "title": "Долина трех ветров",
+                "locations_list": []
+              },
+              "roudend_fort": {
+                "title": "Форт Роуд-Энд",
+                "locations_list": []
+              }
+            }
+          }
+        },
+        "nb": {
+          "nord": "w_lilyut_meadow",
+          "neast": "w_solzreed",
+          "west": "w_white_forest",
+          "south": "w_marianople"
+        }
+      },
+      "w_white_forest": {
+        "title": "Белый лес",
+        "desc": "",
+        "climate": "medium",
+        "levels": [
+          20,
+          24
+        ],
+        "locations": {
+          "factory": [
+            35,
+            20
+          ],
+          "layers": {
+            "places": {
+              "moaning_stones": {
+                "title": "Стонущие камни",
+                "locations_list": []
+              },
+              "crossing": {
+                "title": "Переправа",
+                "locations_list": []
+              },
+              "widow_shoal": {
+                "title": "Вдовья отмель",
+                "locations_list": []
+              },
+              "settlement_crossing": {
+                "title": "Переправа хранителей",
+                "locations_list": []
+              },
+              "south_grove": {
+                "title": "Южная роща",
+                "locations_list": []
+              },
+              "settlement_of_keepers": {
+                "title": "Поселение хранителей",
+                "locations_list": []
+              },
+              "heart_of_white_forest": {
+                "title": "Сердце белого леса",
+                "locations_list": []
+              },
+              "east_grove": {
+                "title": "Восточная роща",
+                "locations_list": []
+              },
+              "west_grove": {
+                "title": "Западная роща",
+                "locations_list": []
+              },
+              "settlement_of_cornography": {
+                "title": "Поселение клана черногривых",
+                "locations_list": []
+              },
+              "crossroads": {
+                "title": "Перепутье",
+                "locations_list": []
+              },
+              "marenlou": {
+                "title": "Маренлоу",
+                "locations_list": []
+              },
+              "honey_plain": {
+                "title": "Медовый луг",
+                "locations_list": []
+              },
+              "beehive": {
+                "title": "Улей",
+                "locations_list": []
+              },
+              "symbol_of_life": {
+                "title": "Символ жизни",
+                "locations_list": []
+              },
+              "farewell_gardens": {
+                "title": "Сады прощаний",
+                "locations_list": []
+              },
+              "nest_of_harpies": {
+                "title": "Гнездо гарпий",
+                "locations_list": []
+              },
+              "marren_river": {
+                "title": "Река Маррен",
+                "locations_list": []
+              },
+              "maze_of_red_moss": {
+                "title": "Лабиринты красного мха",
+                "locations_list": []
+              }
+            }
+          }
+        },
+        "nb": {
+          "east": "w_garangdol_plains",
+          "south": "w_marianople"
+        }
+      },
+      "w_marianople": {
+        "title": "Мэрианхольд",
+        "desc": "",
+        "climate": "medium",
+        "levels": [
+          24,
+          27
+        ],
+        "locations": {
+          "factory": [
+            30,
+            30
+          ],
+          "layers": {
+            "places": {
+              "marianople": {
+                "title": "Мэрианхольд",
+                "locations_list": []
+              },
+              "toriny_garden": {
+                "title": "Cады торини",
+                "locations_list": []
+              },
+              "farms": {
+                "title": "Фермы",
+                "locations_list": []
+              },
+              "mill_dam": {
+                "title": "Мельничная запруда",
+                "locations_list": []
+              },
+              "pavilion": {
+                "title": "Павильон",
+                "locations_list": []
+              },
+              "marren_river": {
+                "title": "Река Маррен",
+                "locations_list": []
+              },
+              "rocks": {
+                "title": "Утесы",
+                "locations_list": []
+              },
+              "fair_meadow": {
+                "title": "Ярморочный луг",
+                "locations_list": []
+              },
+              "slums": {
+                "title": "Трущобы",
+                "locations_list": []
+              },
+              "gold_fields": {
+                "title": "Золотые поля",
+                "locations_list": []
+              },
+              "farms_house": {
+                "title": "Фермерские дома",
+                "locations_list": []
+              }
+            }
+          }
+        },
+        "nb": {
+          "nord": "w_garangdol_plains",
+          "nwest": "w_white_forest",
+          "seast": "w_two_crowns",
+          "south": "w_golden_plains"
+        }
+      },
+      "w_two_crowns": {
+        "title": "Две Короны",
+        "desc": "",
+        "climate": "medium",
+        "levels": [
+          27,
+          30
+        ],
+        "locations": {
+          "factory": [
+            30,
+            30
+          ],
+          "layers": {
+            "places": {
+              "port": {
+                "title": "Порт",
+                "locations_list": []
+              },
+              "two_crowns_castle": {
+                "title": "Крепость двух корон",
+                "locations_list": []
+              },
+              "lilars_of_dawn": {
+                "title": "Столпы рассвета",
+                "locations_list": []
+              },
+              "ruins_of_salem": {
+                "title": "Руины салема",
+                "locations_list": []
+              },
+              "ruins_of_little_port": {
+                "title": "Руины малого порта",
+                "locations_list": []
+              },
+              "camp_of_archaeologists": {
+                "title": "Лагерь археологов",
+                "locations_list": []
+              },
+              "arena": {
+                "title": "Арена",
+                "locations_list": []
+              },
+              "east_bastion": {
+                "title": "Восточный бастион",
+                "locations_list": []
+              },
+              "colored_fields": {
+                "title": "Пестрые поля",
+                "locations_list": []
+              },
+              "vallyford": {
+                "title": "Вэллифорд",
+                "locations_list": []
+              },
+              "north_hills": {
+                "title": "Северные холмы",
+                "locations_list": []
+              },
+              "garden_of_ulviano": {
+                "title": "Сады Ульвиано",
+                "locations_list": []
+              },
+              "kingsroad": {
+                "title": "Королевский тракт",
+                "locations_list": []
+              },
+              "nolrou": {
+                "title": "Нолроу",
+                "locations_list": []
+              },
+              "mines": {
+                "title": "Рудники",
+                "locations_list": []
+              }
+            }
+          }
+        },
+        "nb": {
+          "west": "w_marianople",
+          "east": "w_cross_plains"
+        }
+      },
+      "w_cross_plains": {
+        "title": "Полуостров Падающих Звезд",
+        "desc": "",
+        "climate": "medium",
+        "levels": [
+          30,
+          33
+        ],
+        "locations": {
+          "factory": [
+            20,
+            30
+          ],
+          "layers": {
+            "places": {
+              "hills_of_runaway_slaves": {
+                "title": "Руины беглых рабов",
+                "locations_list": []
+              },
+              "advanced_outpost": {
+                "title": "Передовая заства",
+                "locations_list": []
+              },
+              "molten_shore": {
+                "title": "Оплавленный берег",
+                "locations_list": []
+              },
+              "guard_hills": {
+                "title": "Сторожевые холмы",
+                "locations_list": []
+              },
+              "seechild_pier": {
+                "title": "Пристань Сичайлд",
+                "locations_list": []
+              },
+              "seechild_castle": {
+                "title": "Замок Сичайлд",
+                "locations_list": []
+              },
+              "basalt_quarry": {
+                "title": "Базальтовый карьер",
+                "locations_list": []
+              },
+              "valley_of_ashes": {
+                "title": "Долина пепла",
+                "locations_list": []
+              },
+              "tierra_del_fuego": {
+                "title": "Огненная земля",
+                "locations_list": []
+              },
+              "crater1": {
+                "title": "Кратер",
+                "locations_list": []
+              },
+              "crater2": {
+                "title": "Кратер",
+                "locations_list": []
+              },
+              "crater3": {
+                "title": "Кратер",
+                "locations_list": []
+              },
+              " nest_of_griffins": {
+                "title": "Гнездо грифонов",
+                "locations_list": []
+              },
+              "burned_fortress": {
+                "title": "Сожженная крепость",
+                "locations_list": []
+              },
+              "white_archipelago": {
+                "title": "Белый архипелаг",
+                "locations_list": []
+              },
+              "dead_shore": {
+                "title": "Мертвый берег",
+                "locations_list": []
+              },
+              "valley_of_geysers": {
+                "title": "Долина гейзеров",
+                "locations_list": []
+              }
+            }
+          }
+        },
+        "nb": {
+          "west": "w_two_crowns"
+        }
+      },
+      "w_golden_plains": {
+        "title": "Золотые равнины",
+        "desc": "",
+        "climate": "medium",
+        "levels": [
+          33,
+          36
+        ],
+        "locations": {
+          "factory": [
+            35,
+            18
+          ],
+          "layers": {
+            "places": {
+              "punct": {
+                "title": "Пересыльный пункт",
+                "locations_list": []
+              },
+              "sammerfild": {
+                "title": "Саммерфилд",
+                "locations_list": []
+              },
+              "lair_of_the_crimson_sails": {
+                "title": "Логово багрового паруса",
+                "locations_list": []
+              },
+              "eastern plain": {
+                "title": "Восточная равнина",
+                "locations_list": []
+              },
+              "settlement goldenmane": {
+                "title": "Поселение златогривых",
+                "locations_list": []
+              },
+              "western plain": {
+                "title": "Западная равнина",
+                "locations_list": []
+              },
+              "settlement seekoei": {
+                "title": "Поселение змеекожих",
+                "locations_list": []
+              },
+              "daskshir": {
+                "title": "Даскшир",
+                "locations_list": []
+              },
+              "workshop airships": {
+                "title": "Мастерские дирижаблей",
+                "locations_list": []
+              },
+              "command post": {
+                "title": "Командный пункт",
+                "locations_list": []
+              },
+              "siege camp": {
+                "title": "Осадные лагеря",
+                "locations_list": []
+              },
+              "stounhold": {
+                "title": "Стоунхольд",
+                "locations_list": []
+              }
+            }
+          }
+        },
+        "nb": {
+          "nord": "w_marianople",
+          "seast": "w_two_crowns",
+          "west": "w_hell_swamp",
+          "south": "w_long_sand",
+          "portal": "east.e_ynystere"
+        }
+      },
+      "w_hell_swamp": {
+        "title": "Заболоченые низины",
+        "desc": "",
+        "climate": "tropical",
+        "levels": [
+          35,
+          38
+        ],
+        "locations": {
+          "factory": [
+            18,
+            35
+          ],
+          "layers": {
+            "places": {
+              "pirates bay": {
+                "title": "Пиратская бухта",
+                "locations_list": []
+              },
+              "temporary camp": {
+                "title": "Временный лагерь",
+                "locations_list": []
+              },
+              "rotten ponds": {
+                "title": "Гнилые пруды",
+                "locations_list": []
+              },
+              "rotten quagmire": {
+                "title": "Гиблая трясина",
+                "locations_list": []
+              },
+              "stronghold of the ancient cult": {
+                "title": "Оплот древнего культа",
+                "locations_list": []
+              },
+              "ernoar ruins": {
+                "title": "Руины Эрноара",
+                "locations_list": []
+              },
+              "sinister swamp": {
+                "title": "Зловещая топь",
+                "locations_list": []
+              },
+              "disappearing forest of shadows": {
+                "title": "Лес исчезающих теней",
+                "locations_list": []
+              },
+              "marsh_end": {
+                "title": "Марш-Энд",
+                "locations_list": []
+              },
+              "hives": {
+                "title": "Ульи",
+                "locations_list": []
+              },
+              "settlement of the clan krasnogolowy": {
+                "title": "Поселение клана Красногривых",
+                "locations_list": []
+              }
+            }
+          }
+        },
+        "nb": {
+          "neast": "w_golden_plains",
+          "seast": "w_long_sand"
+        }
+      },
+      "w_long_sand": {
+        "title": "Долгая коса",
+        "desc": "",
+        "climate": "tropical",
+        "levels": [
+          37,
+          40
+        ],
+        "locations": {
+          "factory": [
+            30,
+            25
+          ],
+          "layers": {
+            "places": {
+              "camp of hunters": {
+                "title": "Лагерь охотников",
+                "locations_list": []
+              },
+              "golden hills": {
+                "title": "Зеленые холмы",
+                "locations_list": []
+              },
+              "transparent lagoon": {
+                "title": "Прозрачная лагуна",
+                "locations_list": []
+              },
+              "sanctuary of evine": {
+                "title": "Святилище эвины",
+                "locations_list": []
+              },
+              "camp of handicrafts": {
+                "title": "Лагерь ремеслеников",
+                "locations_list": []
+              },
+              "coral riffs": {
+                "title": "Коралловые рифы",
+                "locations_list": []
+              },
+              "crow nest": {
+                "title": "Воронье гнездо",
+                "locations_list": []
+              },
+              "argento port": {
+                "title": "Порт Аргенто",
+                "locations_list": []
+              },
+              "coastal road": {
+                "title": "Прибрежная дорога",
+                "locations_list": []
+              },
+              "cotton plantation": {
+                "title": "Хлопковая плантация",
+                "locations_list": []
+              }
+            }
+          }
+        },
+        "nb": {
+          "nord": "w_golden_plains",
+          "west": "w_hell_swamp"
+        }
+      },
+      "w_the_carcass": {
+        "title": "Кладбище драконов",
+        "desc": "",
+        "climate": "cold",
+        "levels": [
+          48,
+          50
+        ],
+        "locations": {
+          "factory": [
+            40,
+            30
+          ],
+          "layers": {
+            "places": {
+              "lake of dragon tears": {
+                "title": "Озеро драконьих слез",
+                "locations_list": []
+              },
+              "thunderous gorge": {
+                "title": "Громовое ущелье",
+                "locations_list": []
+              },
+              "dragon heart": {
+                "title": "Сердце дракона",
+                "locations_list": []
+              },
+              "valley vultures": {
+                "title": "Долина падальщиков",
+                "locations_list": []
+              },
+              "untitled castle": {
+                "title": "Безымянная крепость",
+                "locations_list": []
+              },
+              "tail of dragon": {
+                "title": "Хвост дракона",
+                "locations_list": []
+              },
+              "fort of lavion": {
+                "title": "Форт Лавион",
+                "locations_list": []
+              },
+              "dragon ridge": {
+                "title": "Хребет дракона",
+                "locations_list": []
+              },
+              "fort of aranar": {
+                "title": "Форт Аранар",
+                "locations_list": []
+              },
+              "dragon mouth": {
+                "title": "Пасть дракона",
+                "locations_list": []
+              },
+              "old bridge": {
+                "title": "Старый мост",
+                "locations_list": []
+              },
+              "dead channel": {
+                "title": "Мертвое русло",
+                "locations_list": []
+              },
+              "frozen shallow": {
+                "title": "Застывшая отмель",
+                "locations_list": []
+              },
+              "skull village": {
+                "title": "Деревня черепов",
+                "locations_list": []
+              },
+              "dragon lair": {
+                "title": "Логово дракона",
+                "locations_list": []
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "east": {
+    "title": "Восточный континент",
+    "races": [
+      "fer",
+      "har"
+    ],
+    "territories": {
+      "e_falcony_plateau": {
+        "title": "Плато соколинной охоты",
+        "desc": "",
+        "cond": {},
+        "climate": "medium",
+        "levels": [
+          1,
+          10
+        ],
+        "locations": {
+          "factory": [
+            15,
+            25
+          ],
+          "layers": {
+            "water": {},
+            "roads": {},
+            "plain": {},
+            "wood": {},
+            "hills": {},
+            "objects": {},
+            "black_list": [],
+            "places": {
+              "nursery": {
+                "title": "Питомник",
+                "locations_list": []
+              },
+              "wind camp": {
+                "title": "Посерелние ветра",
+                "locations_list": []
+              },
+              "foothills": {
+                "title": "Предгорья",
+                "locations_list": []
+              },
+              "rock of revival warriors": {
+                "title": "Утес возрождения воинов",
+                "locations_list": []
+              },
+              "falcon mountain": {
+                "title": "Соколиная гора",
+                "locations_list": []
+              },
+              "falcon nest": {
+                "title": "Соколинное гнездо",
+                "locations_list": []
+              },
+              "eye of day": {
+                "title": "Око дня",
+                "locations_list": []
+              },
+              "hills of living wind": {
+                "title": "Холмы живого ветра",
+                "locations_list": []
+              },
+              "settlement of gray haze": {
+                "title": "Поселение серой дымки",
+                "locations_list": []
+              },
+              "mounds of ancestors": {
+                "title": "Курганы предков",
+                "locations_list": []
+              },
+              "trade camp": {
+                "title": "Торговый лагерь",
+                "locations_list": []
+              },
+              "plain living wind": {
+                "title": "Равнина живого ветра",
+                "locations_list": []
+              },
+              "settlement of hunting moon": {
+                "title": "Поселенье охотничей луны",
+                "locations_list": []
+              },
+              "falcon claw": {
+                "title": "Соколинный коготь",
+                "locations_list": []
+              },
+              "trail white cloud": {
+                "title": "Тропа белых облаков",
+                "locations_list": []
+              },
+              "den seaglaze": {
+                "title": "Логово змееглазых",
+                "locations_list": []
+              },
+              "belly of beast": {
+                "title": "Логово чудовищ",
+                "locations_list": []
+              },
+              "sea of night": {
+                "title": "Око ночи",
+                "locations_list": []
+              },
+              "misty cave": {
+                "title": "Туманная пещера",
+                "locations_list": []
+              }
+            },
+            "titles": {
+            }
+          }
+        },
+        "nb": {
+          "west": "e_tiger_spine_mountains"
+        }
+      },
+      "e_rainbow_field": {
+        "title": "Радужные пески",
+        "desc": "",
+        "cond": {},
+        "climate": "hot",
+        "levels": [
+          1,
+          10
+        ],
+        "locations": {
+          "factory": [
+            25,
+            15
+          ],
+          "layers": {
+            "water": {},
+            "roads": {},
+            "plain": {},
+            "wood": {},
+            "hills": {},
+            "objects": {},
+            "black_list": [],
+            "places": {
+              "elmodi": {
+                "title": "Эль-Моди",
+                "locations_list": []
+              },
+              "dried cemetery": {
+                "title": "Высохшие кладбища",
+                "locations_list": []
+              },
+              "masonry seekoei": {
+                "title": "Кладки змеекожих",
+                "locations_list": []
+              },
+              "tiger tail": {
+                "title": "Тигриный хвост",
+                "locations_list": []
+              },
+              "gnolls settlement": {
+                "title": "Поселение гнолов",
+                "locations_list": []
+              },
+              "oasis": {
+                "title": "Оазис",
+                "locations_list": []
+              },
+              "moving dunes": {
+                "title": "Шевелящиеся дюны",
+                "locations_list": []
+              },
+              "stone snake": {
+                "title": "Каменная змея",
+                "locations_list": []
+              },
+              "dry plain": {
+                "title": "Сухая равнина",
+                "locations_list": []
+              },
+              "elmarra": {
+                "title": "Эль-Мара",
+                "locations_list": []
+              },
+              "anthills": {
+                "title": "Муравейники",
+                "locations_list": []
+              },
+              "hatora": {
+                "title": "Хатора",
+                "locations_list": []
+              },
+              "granite quarry": {
+                "title": "Гранитный карьер",
+                "locations_list": []
+              },
+              "deserted hill": {
+                "title": "Безлюдный холм",
+                "locations_list": []
+              }
+            },
+            "titles": {
+            }
+          }
+        },
+        "nb": {
+          "nord": "e_tiger_spine_mountains",
+          "nwest": "e_mahadevi"
+        }
+      },
+      "e_tiger_spine_mountains": {
+        "title": "Тигриный хребет",
+        "desc": "",
+        "cond": {},
+        "climate": "medium",
+        "levels": [
+          10,
+          15
+        ],
+        "locations": {
+          "factory": [
+            30,
+            27
+          ],
+          "layers": {
+            "water": {},
+            "roads": {},
+            "plain": {},
+            "wood": {},
+            "hills": {},
+            "objects": {},
+            "black_list": [],
+            "places": {
+              "dump": {
+                "title": "Свалка",
+                "locations_list": []
+              },
+              "gorge kites": {
+                "title": "Ущелье коршунов",
+                "locations_list": []
+              },
+              "iron mines": {
+                "title": "Железные рудники",
+                "locations_list": []
+              },
+              "al hadid": {
+                "title": "Аль-Хадид",
+                "locations_list": []
+              },
+              "engineering workshops": {
+                "title": "Инженерные мастерские",
+                "locations_list": []
+              },
+              "foundry hall": {
+                "title": "Литейный зал",
+                "locations_list": []
+              },
+              "south direction of debi": {
+                "title": "Южное русло Деби",
+                "locations_list": []
+              },
+              "baghank": {
+                "title": "Багханк",
+                "locations_list": []
+              },
+              "braided forest": {
+                "title": "Оплетенный лес",
+                "locations_list": []
+              },
+              "pasture": {
+                "title": "Пасбище",
+                "locations_list": []
+              },
+              "north debi": {
+                "title": "Северное Деби",
+                "locations_list": []
+              },
+              "sanhara": {
+                "title": "Санхара",
+                "locations_list": []
+              },
+              "foggy forest": {
+                "title": "Туманный лес",
+                "locations_list": []
+              },
+              "crystal lake": {
+                "title": "Кристальное озеро",
+                "locations_list": []
+              }
+            },
+            "titles": {
+            }
+          }
+        },
+        "nb": {
+          "south": "e_rainbow_field",
+          "east": "e_falcony_plateau",
+          "west": "e_mahadevi"
+        }
+      },
+      "e_mahadevi": {
+        "title": "Махадеби",
+        "desc": "",
+        "cond": {},
+        "climate": "tropical",
+        "levels": [
+          15,
+          20
+        ],
+        "locations": {
+          "factory": [
+            30,
+            30
+          ],
+          "layers": {
+            "water": {},
+            "roads": {},
+            "plain": {},
+            "wood": {},
+            "hills": {},
+            "objects": {},
+            "black_list": [],
+            "places": {
+              "rain forest": {
+                "title": "Дождевой лес",
+                "locations_list": []
+              },
+              "guard post": {
+                "title": "Сторожевой пост",
+                "locations_list": []
+              },
+              "golden mines": {
+                "title": "Золотой рудник",
+                "locations_list": []
+              },
+              "al tatlib": {
+                "title": "Аль-Татлиб",
+                "locations_list": []
+              },
+              "imperial plantation": {
+                "title": "Императорская плантация",
+                "locations_list": []
+              },
+              "coastal landfill": {
+                "title": "Береговая свалка",
+                "locations_list": []
+              },
+              "al habre": {
+                "title": "Аль-Хабра",
+                "locations_list": []
+              },
+              "port of mahadevi": {
+                "title": "Порт Махадеби",
+                "locations_list": []
+              },
+              "debi river": {
+                "title": "Река Деби",
+                "locations_list": []
+              },
+              "white bay": {
+                "title": "Белоснежная бухта",
+                "locations_list": []
+              },
+              "date palm plantation": {
+                "title": "Финиковая плантация",
+                "locations_list": []
+              },
+              "imperial quarry": {
+                "title": "Императорские каменоломни",
+                "locations_list": []
+              },
+              "rubber plantation": {
+                "title": "Каучуковая плантация",
+                "locations_list": []
+              },
+              "el harat": {
+                "title": "Эль-Рахат",
+                "locations_list": []
+              },
+              "shark shoal": {
+                "title": "Акулья отмель",
+                "locations_list": []
+              },
+              "storm stones": {
+                "title": "Штормовые камни",
+                "locations_list": []
+              },
+              "black coast": {
+                "title": "Черное побережье",
+                "locations_list": []
+              }
+            },
+            "titles": {
+            }
+          }
+        },
+        "nb": {
+          "east": "e_tiger_spine_mountains",
+          "west": "e_sunrise_peninsula",
+          "neast": "e_singing_land"
+        }
+      },
+      "e_sunrise_peninsula": {
+        "title": "Полуостров рассвета",
+        "desc": "",
+        "cond": {},
+        "climate": "hot",
+        "levels": [
+          20,
+          24
+        ],
+        "locations": {
+          "factory": [
+            40,
+            20
+          ],
+          "layers": {
+            "water": {},
+            "roads": {},
+            "plain": {},
+            "wood": {},
+            "hills": {},
+            "objects": {},
+            "black_list": [],
+            "places": {
+              "shimmering forest": {
+                "title": "Мерцающий лес",
+                "locations_list": []
+              },
+              "post of mahadevi": {
+                "title": "Застава Махадеби",
+                "locations_list": []
+              },
+              "mahadevi hills": {
+                "title": "Холмы Махадеби",
+                "locations_list": []
+              },
+              "fort al sedjan": {
+                "title": "Форт Аль-Седжан",
+                "locations_list": []
+              },
+              "ost terra": {
+                "title": "Ост-Терра",
+                "locations_list": []
+              },
+              "construction site": {
+                "title": "Строительная площадка",
+                "locations_list": []
+              },
+              "excavations of harihalla": {
+                "title": "Раскопки Харихаллы",
+                "locations_list": []
+              },
+              "sunset hills": {
+                "title": "Закатные холмы",
+                "locations_list": []
+              },
+              "camp of expedition": {
+                "title": "Лагерь экспедиции",
+                "locations_list": []
+              },
+              "hot springs": {
+                "title": "Горячие источники",
+                "locations_list": []
+              },
+              "bunhallo": {
+                "title": "Бунгало",
+                "locations_list": []
+              },
+              "el berke": {
+                "title": "Эль-Берке",
+                "locations_list": []
+              },
+              "imperial road": {
+                "title": "Императорская дорога",
+                "locations_list": []
+              },
+              "imperial hills": {
+                "title": "Императорские холмы",
+                "locations_list": []
+              },
+              "monument of farvatti": {
+                "title": "Обелиск Фарвати",
+                "locations_list": []
+              },
+              "guard post": {
+                "title": "Караульный пост",
+                "locations_list": []
+              },
+              "saffron plantation": {
+                "title": "Шафрановая плантация",
+                "locations_list": []
+              },
+              "korihalla": {
+                "title": "Корихалла",
+                "locations_list": []
+              },
+              "sunny plateau": {
+                "title": "Солнечное плато",
+                "locations_list": []
+              },
+              "settlement of orks": {
+                "title": "Поселение орков",
+                "locations_list": []
+              },
+              "plateau elements": {
+                "title": "Плато стихий",
+                "locations_list": []
+              },
+              "bay of wrecks": {
+                "title": "Бухта затонувших кораблей",
+                "locations_list": []
+              }
+            },
+            "titles": {
+            }
+          }
+        },
+        "nb": {
+          "east": "e_mahadevi"
+        }
+      },
+      "e_singing_land": {
+        "title": "Поющая земля",
+        "desc": "",
+        "cond": {},
+        "climate": "medium",
+        "levels": [
+          24,
+          27
+        ],
+        "locations": {
+          "factory": [
+            30,
+            30
+          ],
+          "layers": {
+            "water": {},
+            "roads": {},
+            "plain": {},
+            "wood": {},
+            "hills": {},
+            "objects": {},
+            "black_list": [],
+            "places": {
+              "dsao farm": {
+                "title": "Ферма Дзао",
+                "locations_list": []
+              },
+              "hill singing lute": {
+                "title": "Холм поющей лютни",
+                "locations_list": []
+              },
+              "village seven bridges": {
+                "title": "Деревня семи мостов",
+                "locations_list": []
+              },
+              "lute port": {
+                "title": "Порт лютни",
+                "locations_list": []
+              },
+              "bay of torches": {
+                "title": "Залив факелов",
+                "locations_list": []
+              },
+              "intoxicating fields": {
+                "title": "Хмельные поля",
+                "locations_list": []
+              },
+              "intoxicating village": {
+                "title": "Хмельная деревня",
+                "locations_list": []
+              },
+              "valley of snakes": {
+                "title": "Долина змей",
+                "locations_list": []
+              },
+              "valley white birds": {
+                "title": "Долина белых птиц",
+                "locations_list": []
+              },
+              "temple reunion": {
+                "title": "Храм воссоединения",
+                "locations_list": []
+              },
+              "hills quiet songs": {
+                "title": "Холмы тихих песен",
+                "locations_list": []
+              },
+              "collection point of militia": {
+                "title": "Пункт сбора ополчения",
+                "locations_list": []
+              },
+              "fishing village": {
+                "title": "Рыбацкая деревня",
+                "locations_list": []
+              }
+            },
+            "titles": {
+            }
+          }
+        },
+        "nb": {
+          "swest": "e_mahadevi",
+          "neast": "e_ancient_forest"
+        }
+      },
+      "e_ancient_forest": {
+        "title": "Древний лес",
+        "desc": "",
+        "cond": {},
+        "climate": "medium",
+        "levels": [
+          27,
+          30
+        ],
+        "locations": {
+          "factory": [
+            20,
+            20
+          ],
+          "layers": {
+            "water": {},
+            "roads": {},
+            "plain": {},
+            "wood": {},
+            "hills": {},
+            "objects": {},
+            "black_list": [],
+            "places": {
+              "settlement of forest guardians": {
+                "title": "Поселение стражей леса",
+                "locations_list": []
+              },
+              "bright hollow": {
+                "title": "Светлая лощина",
+                "locations_list": []
+              },
+              "huntsvill": {
+                "title": "Хантсвиль",
+                "locations_list": []
+              },
+              "angry grove": {
+                "title": "Разгневаная роща",
+                "locations_list": []
+              },
+              "cutting": {
+                "title": "Вырубка",
+                "locations_list": []
+              },
+              "camp of woodcutters": {
+                "title": "Лагерь лесорубов",
+                "locations_list": []
+              },
+              "silent lake": {
+                "title": "Безмолвное озеро",
+                "locations_list": []
+              },
+              "biting grove": {
+                "title": "Кусачая роща",
+                "locations_list": []
+              },
+              "forest sanctuary": {
+                "title": "Лесное святилище",
+                "locations_list": []
+              },
+              "camp guards of forest": {
+                "title": "Лагерь стражей леса",
+                "locations_list": []
+              },
+              "webstow": {
+                "title": "Вебстоу",
+                "locations_list": []
+              },
+              "petrified grove": {
+                "title": "Оцепеневшая роща",
+                "locations_list": []
+              },
+              "valley of tombs": {
+                "title": "Долина гробниц",
+                "locations_list": []
+              }
+            },
+            "titles": {
+            }
+          }
+        },
+        "nb": {
+          "west": "e_singing_land",
+          "nord": "e_ynystere"
+        }
+      },
+      "e_ynystere": {
+        "title": "Инистра",
+        "desc": "",
+        "cond": {},
+        "climate": "medium",
+        "levels": [
+          30,
+          33
+        ],
+        "locations": {
+          "factory": [
+            30,
+            30
+          ],
+          "layers": {
+            "water": {},
+            "roads": {},
+            "plain": {},
+            "wood": {},
+            "hills": {},
+            "objects": {},
+            "black_list": [],
+            "places": {
+              "Beech forest": {
+                "title": "Буковый лес",
+                "locations_list": []
+              },
+              "camp of Lord Egan": {
+                "title": "Лагерь лорда Игана",
+                "locations_list": []
+              },
+              "richdelf": {
+                "title": "Ричдельф",
+                "locations_list": []
+              },
+              "ruby mine": {
+                "title": "Рубиновый прииск",
+                "locations_list": []
+              },
+              "hills Mirage": {
+                "title": "Холмы миражей",
+                "locations_list": []
+              },
+              "border wall": {
+                "title": "Пограничная стена",
+                "locations_list": []
+              },
+              "estate rose": {
+                "title": "Поместье роуз",
+                "locations_list": []
+              },
+              "hunting grounds": {
+                "title": "Охотничьи угодья",
+                "locations_list": []
+              },
+              "desir river": {
+                "title": "Река Дезир",
+                "locations_list": []
+              },
+              "riverguard": {
+                "title": "Ривергард",
+                "locations_list": []
+              },
+              "bandit island": {
+                "title": "Разбойничий остров",
+                "locations_list": []
+              },
+              "community of ascetics": {
+                "title": "Община аскетов",
+                "locations_list": []
+              },
+              "plain dolmens": {
+                "title": "Равнина дольменов",
+                "locations_list": []
+              },
+              "bay of silence": {
+                "title": "Залив тишины",
+                "locations_list": []
+              },
+              "fort keypguard": {
+                "title": "Форт Кейпгард",
+                "locations_list": []
+              },
+              "сape tranquillity": {
+                "title": "Мыс спокойствия",
+                "locations_list": []
+              },
+              "hadir farm": {
+                "title": "Ферма хадира",
+                "locations_list": []
+              },
+              "fishing village": {
+                "title": "Рыбацкая деревня",
+                "locations_list": []
+              }
+            },
+            "titles": {
+            }
+          }
+        },
+        "nb": {
+          "east": "e_ancient_forest",
+          "portal": "west.w_golden_plains"
+        }
+      },
+      "e_lokas_checkers": {
+        "title": "Рокочущие перевалы",
+        "desc": "",
+        "cond": {},
+        "climate": "hot",
+        "levels": [
+          1,
+          10
+        ],
+        "locations": {
+          "factory": [
+            30,
+            30
+          ],
+          "layers": {
+            "water": {},
+            "roads": {},
+            "plain": {},
+            "wood": {},
+            "hills": {},
+            "objects": {},
+            "black_list": [],
+            "places": {
+            },
+            "titles": {
+            }
+          }
+        }
+      },
+      "e_steppe_belt": {
+        "title": "Саванна",
+        "desc": "",
+        "cond": {},
+        "climate": "hot",
+        "levels": [
+          1,
+          10
+        ],
+        "locations": {
+          "factory": [
+            30,
+            30
+          ],
+          "layers": {
+            "water": {},
+            "roads": {},
+            "plain": {},
+            "wood": {},
+            "hills": {},
+            "objects": {},
+            "black_list": [],
+            "places": {
+            },
+            "titles": {
+            }
+          }
+        }
+      },
+      "e_ruins_of_hariharalaya": {
+        "title": "Руины Харихараллы",
+        "desc": "",
+        "cond": {},
+        "climate": "hot",
+        "levels": [
+          1,
+          10
+        ],
+        "locations": {
+          "factory": [
+            30,
+            30
+          ],
+          "layers": {
+            "water": {},
+            "roads": {},
+            "plain": {},
+            "wood": {},
+            "hills": {},
+            "objects": {},
+            "black_list": [],
+            "places": {
+            },
+            "titles": {
+            }
+          }
+        }
+      },
+      "e_hasla": {
+        "title": "Хазира",
+        "desc": "",
+        "cond": {},
+        "climate": "hot",
+        "levels": [
+          1,
+          10
+        ],
+        "locations": {
+          "factory": [
+            30,
+            30
+          ],
+          "layers": {
+            "water": {},
+            "roads": {},
+            "plain": {},
+            "wood": {},
+            "hills": {},
+            "objects": {},
+            "black_list": [],
+            "places": {
+            },
+            "titles": {
+            }
+          }
+        }
+      }
+    }
+  },
+  "north": {
+    "title": "Северный континент",
+    "races": [
+      "fer",
+      "har",
+      "nui",
+      "elf"
+    ],
+    "territories": {
+      "o_salpimari": {
+        "title": "Сальфимар",
+        "desc": "",
+        "cond": {},
+        "climate": "hot",
+        "levels": [
+          1,
+          10
+        ],
+        "locations": {
+          "factory": [
+            30,
+            30
+          ],
+          "layers": {
+            "water": {},
+            "roads": {},
+            "plain": {},
+            "wood": {},
+            "hills": {},
+            "objects": {},
+            "black_list": [],
+            "places": {
+            },
+            "titles": {
+            }
+          }
+        }
+      },
+      "o_nuimari": {
+        "title": "Нуимар",
+        "desc": "",
+        "cond": {},
+        "climate": "hot",
+        "levels": [
+          1,
+          10
+        ],
+        "locations": {
+          "factory": [
+            30,
+            30
+          ],
+          "layers": {
+            "water": {},
+            "roads": {},
+            "plain": {},
+            "wood": {},
+            "hills": {},
+            "objects": {},
+            "black_list": [],
+            "places": {
+            },
+            "titles": {
+            }
+          }
+        }
+      },
+      "o_seonyeokmari": {
+        "title": "Сангемар",
+        "desc": "",
+        "cond": {},
+        "climate": "hot",
+        "levels": [
+          1,
+          10
+        ],
+        "locations": {
+          "factory": [
+            30,
+            30
+          ],
+          "layers": {
+            "water": {},
+            "roads": {},
+            "plain": {},
+            "wood": {},
+            "hills": {},
+            "objects": {},
+            "black_list": [],
+            "places": {
+            },
+            "titles": {
+            }
+          }
+        }
+      },
+      "o_rest_land": {
+        "title": "Земли покоя",
+        "desc": "",
+        "cond": {},
+        "climate": "hot",
+        "levels": [
+          1,
+          10
+        ],
+        "locations": {
+          "factory": [
+            30,
+            30
+          ],
+          "layers": {
+            "water": {},
+            "roads": {},
+            "plain": {},
+            "wood": {},
+            "hills": {},
+            "objects": {},
+            "black_list": [],
+            "places": {
+            },
+            "titles": {
+            }
+          }
+        }
+      },
+      "o_abyss_gate": {
+        "title": "Бездна",
+        "desc": "",
+        "cond": {},
+        "climate": "hot",
+        "levels": [
+          1,
+          10
+        ],
+        "locations": {
+          "factory": [
+            30,
+            30
+          ],
+          "layers": {
+            "water": {},
+            "roads": {},
+            "plain": {},
+            "wood": {},
+            "hills": {},
+            "objects": {},
+            "black_list": [],
+            "places": {
+            },
+            "titles": {
+            }
+          }
+        }
+      },
+      "o_land_of_sunlights": {
+        "title": "Солнечные поля",
+        "desc": "",
+        "cond": {},
+        "climate": "hot",
+        "levels": [
+          1,
+          10
+        ],
+        "locations": {
+          "factory": [
+            30,
+            30
+          ],
+          "layers": {
+            "water": {},
+            "roads": {},
+            "plain": {},
+            "wood": {},
+            "hills": {},
+            "objects": {},
+            "black_list": [],
+            "places": {
+            },
+            "titles": {
+            }
+          }
+        }
+      }
+    }
+  },
+  "sea": {
+    "title": "Море",
+    "races": [
+      "fer",
+      "har",
+      "nui",
+      "elf"
+    ],
+    "territories": {
+      "s_lostway_sea": {
+        "title": "Море Забвения",
+        "desc": "",
+        "cond": {},
+        "climate": "hot",
+        "levels": [
+          1,
+          10
+        ],
+        "locations": {
+          "factory": [
+            30,
+            30
+          ],
+          "layers": {
+            "water": {},
+            "roads": {},
+            "plain": {},
+            "wood": {},
+            "hills": {},
+            "objects": {},
+            "black_list": [],
+            "places": {
+            },
+            "titles": {
+            }
+          }
+        }
+      },
+      "s_silent_sea": {
+        "title": "Безмятежное море",
+        "desc": "",
+        "cond": {},
+        "climate": "hot",
+        "levels": [
+          1,
+          10
+        ],
+        "locations": {
+          "factory": [
+            30,
+            30
+          ],
+          "layers": {
+            "water": {},
+            "roads": {},
+            "plain": {},
+            "wood": {},
+            "hills": {},
+            "objects": {},
+            "black_list": [],
+            "places": {
+            },
+            "titles": {
+            }
+          }
+        }
+      },
+      "s_golden_sea": {
+        "title": "Золотое море",
+        "desc": "",
+        "cond": {},
+        "climate": "hot",
+        "levels": [
+          1,
+          10
+        ],
+        "locations": {
+          "factory": [
+            30,
+            30
+          ],
+          "layers": {
+            "water": {},
+            "roads": {},
+            "plain": {},
+            "wood": {},
+            "hills": {},
+            "objects": {},
+            "black_list": [],
+            "places": {
+            },
+            "titles": {
+            }
+          }
+        }
+      },
+      "s_crescent_sea": {
+        "title": "Море полумесяца",
+        "desc": "",
+        "cond": {},
+        "climate": "hot",
+        "levels": [
+          1,
+          10
+        ],
+        "locations": {
+          "factory": [
+            30,
+            30
+          ],
+          "layers": {
+            "water": {},
+            "roads": {},
+            "plain": {},
+            "wood": {},
+            "hills": {},
+            "objects": {},
+            "black_list": [],
+            "places": {
+            },
+            "titles": {
+            }
+          }
+        }
+      },
+      "s_lost_island": {
+        "title": "Море свободы",
+        "desc": "",
+        "cond": {},
+        "climate": "hot",
+        "levels": [
+          1,
+          10
+        ],
+        "locations": {
+          "factory": [
+            30,
+            30
+          ],
+          "layers": {
+            "water": {},
+            "roads": {},
+            "plain": {},
+            "wood": {},
+            "hills": {},
+            "objects": {},
+            "black_list": [],
+            "places": {
+            },
+            "titles": {
+            }
+          }
+        }
+      },
+      "s_freedom_island": {
+        "title": "Остров свободы",
+        "desc": "",
+        "cond": {},
+        "climate": "hot",
+        "levels": [
+          1,
+          10
+        ],
+        "locations": {
+          "factory": [
+            30,
+            30
+          ],
+          "layers": {
+            "water": {},
+            "roads": {},
+            "plain": {},
+            "wood": {},
+            "hills": {},
+            "objects": {},
+            "black_list": [],
+            "places": {
+            },
+            "titles": {
+            }
+          }
+        }
+      },
+      "s_pirate_island": {
+        "title": "Море бурь",
+        "desc": "",
+        "cond": {},
+        "climate": "hot",
+        "levels": [
+          1,
+          10
+        ],
+        "locations": {
+          "factory": [
+            30,
+            30
+          ],
+          "layers": {
+            "water": {},
+            "roads": {},
+            "plain": {},
+            "wood": {},
+            "hills": {},
+            "objects": {},
+            "black_list": [],
+            "places": {
+            },
+            "titles": {
+            }
+          }
+        }
+      }
+    }
+  }
+}
