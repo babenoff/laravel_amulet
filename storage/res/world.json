@@ -1006,6 +1006,9 @@
               }
             }
           }
+        },
+        "nb": {
+          "portal": "east.e_hasla"
         }
       }
     }
@@ -1897,13 +1900,13 @@
         "cond": {},
         "climate": "hot",
         "levels": [
-          1,
-          10
+          42,
+          45
         ],
         "locations": {
           "factory": [
             30,
-            30
+            20
           ],
           "layers": {
             "water": {},
@@ -1914,20 +1917,76 @@
             "objects": {},
             "black_list": [],
             "places": {
+              "rococoa river": {
+                "title": "Рокочущая река",
+                "locations_list": []
+              },
+              "plain afternoon shade": {
+                "title": "Равнина полуденной тени",
+                "locations_list": []
+              },
+              "lion rock": {
+                "title": "Львиный утес",
+                "locations_list": []
+              },
+              "boundless steppe": {
+                "title": "Бескрайняя степь",
+                "locations_list": []
+              },
+              "settlement of red claw": {
+                "title": "Поселение красного когтя",
+                "locations_list": []
+              },
+              "potholes": {
+                "title": "Рытвины",
+                "locations_list": []
+              },
+              "settlement of fire breathing": {
+                "title": "Поселение огненного дыхания",
+                "locations_list": []
+              },
+              "plain fresh wind": {
+                "title": "Равнина свежего ветра",
+                "locations_list": []
+              },
+              "shady shelter": {
+                "title": "Тенистый приют",
+                "locations_list": []
+              },
+              "plain now silent wind": {
+                "title": "Равнина умолкшего ветра",
+                "locations_list": []
+              },
+              "settlement blue fang": {
+                "title": "Поселение синего клыка",
+                "locations_list": []
+              },
+              "disputed plains": {
+                "title": "Спорные равнины",
+                "locations_list": []
+              },
+              "the heart of savannah": {
+                "title": "Сердце саванны",
+                "locations_list": []
+              }
             },
             "titles": {
             }
           }
+        },
+        "nb": {
+          "nord": "e_lokas_checkers",
+          "east": "e_ruins_of_hariharalaya"
         }
       },
       "e_ruins_of_hariharalaya": {
         "title": "Руины Харихараллы",
         "desc": "",
         "cond": {},
-        "climate": "hot",
+        "climate": "tropical",
         "levels": [
-          1,
-          10
+          44,
+          47
         ],
         "locations": {
           "factory": [
@@ -1943,25 +2002,65 @@
             "objects": {},
             "black_list": [],
             "places": {
+              "camp of expedition": {
+                "title": "Лагерь экспедиции",
+                "locations_list": []
+              },
+              "death road": {
+                "title": "Дорога смерти",
+                "locations_list": []
+              },
+              "ruins of charichalla": {
+                "title": "Руины харихаллы",
+                "locations_list": []
+              },
+              "golden garden": {
+                "title": "Золотой сад",
+                "locations_list": []
+              },
+              "village of stonecutters": {
+                "title": "Деревня каменотесов",
+                "locations_list": []
+              },
+              "lost city": {
+                "title": "Затерянный город",
+                "locations_list": []
+              },
+              "enchanted ponds": {
+                "title": "Зачарованные пруды",
+                "locations_list": []
+              },
+              "camp of archaeologists": {
+                "title": "Лагерь археологов",
+                "locations_list": []
+              },
+              "forest ancient idols": {
+                "title": "Лес древних идолов",
+                "locations_list": []
+              }
             },
             "titles": {
             }
           }
+        },
+        "nb": {
+          "nord": "e_steppe_belt",
+          "east": "e_hasla"
         }
       },
       "e_hasla": {
         "title": "Хазира",
         "desc": "",
         "cond": {},
-        "climate": "hot",
+        "climate": "medium",
         "levels": [
-          1,
-          10
+          46,
+          49
         ],
         "locations": {
           "factory": [
-            30,
-            30
+            20,
+            20
           ],
           "layers": {
             "water": {},
@@ -1972,10 +2071,58 @@
             "objects": {},
             "black_list": [],
             "places": {
+              "top of world": {
+                "title": "Вершина мира",
+                "locations_list": []
+              },
+              "heavenly ladder": {
+                "title": "Небесная лестница",
+                "locations_list": []
+              },
+              "reservation Tami": {
+                "title": "Резервация Тэми",
+                "locations_list": []
+              },
+              "plague village": {
+                "title": "Чумная деревня",
+                "locations_list": []
+              },
+              "plague forest": {
+                "title": "Чумной лес",
+                "locations_list": []
+              },
+              "jade village": {
+                "title": "Нефритовая деревня",
+                "locations_list": []
+              },
+              "forest crouching tiger": {
+                "title": "Лес крадущегося тигра",
+                "locations_list": []
+              },
+              "jade falls": {
+                "title": "Нефритовые водопады",
+                "locations_list": []
+              },
+              "jade Palace": {
+                "title": "Нефритовый дворец",
+                "locations_list": []
+              },
+              "memorial": {
+                "title": "Мемориал",
+                "locations_list": []
+              },
+              "camp of tami": {
+                "title": "Поселение Тэми",
+                "locations_list": []
+              }
             },
             "titles": {
             }
           }
+        },
+        "nb": {
+          "west": "e_ruins_of_hariharalaya",
+          "portal": "west.w_the_carcass"
         }
       }
     }

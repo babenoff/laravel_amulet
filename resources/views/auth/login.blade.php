@@ -5,6 +5,15 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
+                <div class="panel-body">
+                    {{ config('app.name') }} - это текстовая игра в жанре MMORPG. <br/>
+
+                    Путешествуйте по {{ $continents." ".trans_choice('ui.materic_many', $continents) }},
+                    {{ $territories." ".trans_choice('ui.territory_many', $territories) }}.<br />
+                    Побывайте в {{ $layers." ".trans_choice('ui.layer_many', $layers) }}, пройдите {{ $locations." ".trans_choice('ui.location_many', $locations) }}
+                </div>
+            </div>
+            <div class="panel panel-default">
                 <div class="panel-heading">Вход</div>
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">

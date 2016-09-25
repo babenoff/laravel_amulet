@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Continent;
 use App\Http\Controllers\Controller;
+use App\Location;
+use App\LocationLayer;
+use App\Territory;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
@@ -26,6 +30,19 @@ class LoginController extends Controller
      * @var string
      */
     protected $redirectTo = '/lobby';
+
+    public function showLoginForm(){
+        $continentsCount = Continent::all()->count();
+        $territoryCount = Territory::all()->count();
+        $layersCount = LocationLayer::all()->count();
+        $locationsCount = Location::all()->count();
+        return view('auth.login', [
+            'continents' => $continentsCount,
+            'territories' => $territoryCount,
+            'layers' => $layersCount,
+            'locations' => $locationsCount
+        ]);
+    }
 
     /**
      * Create a new controller instance.
