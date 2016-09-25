@@ -49,7 +49,7 @@ class LocationsSeed extends Seeder
                         if(isset($territory['locations']['factory'])) {
                             /*$max_X = $territory['locations']['factory'][0];
                             $max_Y = $territory['locations']['factory'][1];*/
-                            if(\Illuminate\Support\Facades\Config::get('env') != 'production') {
+                            if(\Illuminate\Support\Facades\Config::get('app.env') != 'production') {
                                 $max_X = 5;
                                 $max_Y = 5;
                             } else {
