@@ -21,6 +21,15 @@ class ResetPasswordController extends Controller
     use ResetsPasswords;
 
     /**
+     * Get the post register / login redirect path.
+     *
+     * @return string
+     */
+    public function redirectPath()
+    {
+        return property_exists($this, 'redirectTo') ? $this->redirectTo : '/';
+    }
+    /**
      * Create a new controller instance.
      *
      * @return void
