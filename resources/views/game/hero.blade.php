@@ -6,7 +6,7 @@
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <strong>{{ $hero->name }}</strong>, {{ trans('game.gender.'.$hero->hero_sex) }} {{ trans('game.races.'.$hero->hero_race) }}
+                        <strong>{{ $game->hero->name }}</strong>, {{ trans('game.gender.'.$game->hero->hero_sex) }} {{ trans('game.races.'.$game->hero->hero_race) }}
                     </div>
                     @if(isset($errors))
                         <ul class="list-unstyled bg-warning">

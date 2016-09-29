@@ -100,7 +100,7 @@ class LobbyController extends Controller
             return redirect()->back()->withErrors($validator->getMessageBag());
         } else {
             $userId = $request->user()->id;
-            $startLoc = Location::where('hash', config('Game.start_locs.' . $data["race"]))->first();
+            $startLoc = Location::where('hash', config('game.start_locs.' . $data["race"]))->first();
             $hero = new Hero([
                 'name' => $data["hero_name"],
                 'location' => 'loc_test',
@@ -237,8 +237,7 @@ class LobbyController extends Controller
         $user = $request->user();
         $heroId = $request->get('heroId');
         if ($user->heroExists($heroId)) {
-            $session = $request->session();
-            $session->put('heroId', $heroId);
+            $request->session()->put('heroId', $heroId);
             /** @var Hero $hero */
             $hero = Hero::find($heroId);
             $locOffline = $hero->locOffline;

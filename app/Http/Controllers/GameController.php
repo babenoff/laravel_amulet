@@ -35,7 +35,7 @@ class GameController extends Controller
 
     public function hero(){
         return view('game.hero', [
-            'hero' => $this->game->hero
+            'game' => $this->game,
         ]);
     }
 
