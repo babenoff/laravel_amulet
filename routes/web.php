@@ -49,4 +49,5 @@ Route::group([
         Route::get('hero', ['uses' => 'GameController@hero', 'as' => 'hero']);
         Route::get('inventory', ['uses' => 'GameController@inventory', 'as' => 'inventory']);
         Route::get('settings', ['uses' => 'GameController@settings', 'as' => 'game-settings']);
+        Route::get('skills', ['uses' => 'GameController@skills', 'as' => 'skills']);
     });

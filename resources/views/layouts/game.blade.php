@@ -37,16 +37,17 @@
                 </button>
 
                 <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                <a class="navbar-brand text-capitalize" href="{{ url('/') }}">
+                    @lang('ui.label.travel')
                 </a>
             </div>
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    &nbsp;<li><a class="text-capitalize" href="{{ route('hero') }}">@lang('ui.label.hero')</a></li>
-                    <li><a class="text-capitalize" href="{{ route('inventory') }}">@lang('ui.label.inventory')</a></li>
+                    <li id="heroLink"><a class="text-capitalize" href="{{ route('hero') }}"><strong>@lang('ui.label.hero')</strong></a></li>
+                    <li id="invLink"><a class="text-capitalize" href="{{ route('inventory') }}"><strong>@lang('ui.label.inventory')</strong></a></li>
+                    <li id="skillsLink"><a class="text-capitalize" href="{{ route('skills') }}"><strong>@lang('ui.label.skills')</strong></a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
@@ -84,5 +85,6 @@
 
     <!-- Scripts -->
     <script src="/js/app.js"></script>
+    @yield('scripts')
 </body>
 </html>

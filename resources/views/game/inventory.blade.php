@@ -6,7 +6,7 @@
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <strong>{{ $game->hero->name }}</strong>, {{ trans('game.gender.'.$game->hero->hero_sex) }} {{ trans('game.races.'.$game->hero->hero_race) }}
+                        <strong class="text-capitalize">@lang('ui.label.inventory')</strong>
                     </div>
                     @if(isset($errors))
                         <ul class="list-unstyled bg-warning">
@@ -29,7 +29,7 @@
 @section('scripts')
     <script type="text/javascript">
         $(function () {
-            $('#heroLink').addClass('active');
+            $('#invLink').addClass('active');
         });
     </script>
 @endsection

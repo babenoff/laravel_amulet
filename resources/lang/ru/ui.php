@@ -14,7 +14,9 @@ return [
         'logout' => 'выход',
         'hero' => 'персонаж',
         'inventory' => 'инвентарь',
-        'settings' => 'настройки'
+        'settings' => 'настройки',
+        'skills' => 'навыки',
+        'travel' => 'путешествие'
     ],
     'climate' => [
         'label' => 'климат',

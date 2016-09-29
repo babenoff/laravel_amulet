@@ -46,6 +46,18 @@ class GameController extends Controller
         ]);
     }
 
+    public function inventory(Request $request){
+        return view('game.inventory', [
+            'game' => $this->game,
+        ]);
+    }
+
+    public function skills(Request $request){
+        return view('game.skills', [
+            'game' => $this->game,
+        ]);
+    }
+
     public function disconnect(Request $req){
         $this->game->hero->toOffline();
         $req->session()->forget('heroId');

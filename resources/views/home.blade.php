@@ -58,19 +58,18 @@
                                                         </span>
                                                     </p>--}}
                                                 </div>
-                                                <div class="clearfix"></div>
-                                                <div class="panel-info">
+                                                <div class="panel-links">
                                                     <div class="btn-group-justified" role="group" aria-label="{{ trans('Game') }}">
                                                         <a class="btn btn-success" href="#" onclick="event.preventDefault();
                                                  document.getElementById('connectGameForm{{$hero->id}}').submit();"><strong class="text-uppercase">{{ trans('ui.label.connect-game') }}</strong></a>
                                                         <a class="btn btn-danger" href="#" onclick="event.preventDefault();
                                                  document.getElementById('removeHeroForm{{$hero->id}}').submit();"><strong class="text-uppercase">{{ trans('ui.label.remove') }}</strong></a>
                                                         <form id="connectGameForm{{$hero->id}}" action="{{ route('connect-game')  }}" method="post" style="display: none">
-                                                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                                            {{ csrf_field() }}
                                                             <input type="hidden" name="heroId" value="{{$hero->id}}">
                                                         </form>
                                                         <form id="removeHeroForm{{$hero->id}}" action="{{ route('connect-game', ['heroId' => $hero->id])  }}" method="post" style="display: none">
-                                                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                                            {{ csrf_field() }}
                                                             <input type="hidden" name="heroId" value="{{$hero->id}}">
                                                         </form>
                                                     </div>
