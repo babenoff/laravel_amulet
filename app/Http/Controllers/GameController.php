@@ -16,14 +16,21 @@ class GameController extends Controller
      */
     protected $game;
 
-    public function __construct(Request $request)
+    public function __construct()
     {
         $this->middleware('in.game');
-        $heroId = $request->session()->get('heroId');
-        $onlineHero = OnlineHeroes::where(
-            'hero_id', $heroId
-        )->first();
-        $this->game = $onlineHero;
+        $this->middleware(function(Request $request, \Closure $next){
+            $session = $request->session();
+            $heroId = $session->get('heroId');
+           // $heroId = $request->session()->get('heroId');
+            //$heroId = $request->session()->get('heroId');
+            $onlineHero = OnlineHeroes::where(
+                'hero_id', $heroId
+            )->first();
+            $this->game = $onlineHero;
+            return $next($request);
+        });
+
     }
 
     public function main(){
@@ -42,6 +49,6 @@ class GameController extends Controller
     public function disconnect(Request $req){
         $this->game->hero->toOffline();
         $req->session()->forget('heroId');
-        return redirect()->route('lobby')->with('errors', 'Ваш герой покинет игру в течение нескольких минут');
+        return redirect()->route('lobby')->with('errors', ['Ваш герой покинет игру в течение нескольких минут']);
     }
 }

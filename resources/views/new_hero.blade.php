@@ -6,7 +6,6 @@
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
                     <div class="panel-heading"><strong><span class="text-uppercase text-primary">{{ trans('ui.label.new-hero') }}</span></strong> </div>
-
                     <div class="panel-body">
                         <form class="form-horizontal" role="form" method="POST" action="{{ url('/new-hero') }}">
                             {{ csrf_field() }}

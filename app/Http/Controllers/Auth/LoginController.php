@@ -8,6 +8,9 @@ use App\Location;
 use App\LocationLayer;
 use App\Territory;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\ViewErrorBag;
 
 class LoginController extends Controller
 {
@@ -31,11 +34,12 @@ class LoginController extends Controller
      */
     protected $redirectTo = '/lobby';
 
-    public function showLoginForm(){
+    public function showLoginForm(Request $request){
         $continentsCount = Continent::all()->count();
         $territoryCount = Territory::all()->count();
         $layersCount = LocationLayer::all()->count();
         $locationsCount = Location::all()->count();
+        //$errors = Session::get('errors', new ViewErrorBag());
         return view('auth.login', [
             'continents' => $continentsCount,
             'territories' => $territoryCount,

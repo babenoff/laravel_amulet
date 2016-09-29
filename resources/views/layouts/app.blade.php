@@ -63,7 +63,7 @@
                                     <a class="btn btn-link btn-danger" href="{{ url('/logout') }}"
                                         onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">
-                                        Выход
+                                        @lang('ui.label.logout')
                                     </a>
 
                                     <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">

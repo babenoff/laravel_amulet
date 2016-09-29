@@ -19,6 +19,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\MessageBag;
+use Illuminate\Support\ViewErrorBag;
 
 class LobbyController extends Controller
 {
@@ -61,7 +63,7 @@ class LobbyController extends Controller
         return view('home', [
             'heroes' => $heroes,
             'skills_tree' => $tree,
-            'errors' => $request->session()->get('errors', [])
+            'errors' => $request->session()->get('errors', new ViewErrorBag)
         ]);
     }
 
@@ -71,6 +73,7 @@ class LobbyController extends Controller
         $user = $req->user();
         $heroes = $user->heroes()->getEager()->all();
         if (count($heroes) < config('game.max_heroes')) {
+            //$errors = $req->session()->get('errors', new ViewErrorBag());
             return view('new_hero', [
                 'start_skills' => [
                     FIGHT => trans('skills.tree.' . FIGHT),
@@ -79,7 +82,7 @@ class LobbyController extends Controller
                     DEATH => trans('skills.tree.' . DEATH),
                     CALLING => trans('skills.tree.' . CALLING),
                     DEVOTION => trans('skills.tree.' . DEVOTION),
-                ],
+                ]
             ]);
         } else {
             return redirect()->back()->with('errors', [
@@ -97,7 +100,7 @@ class LobbyController extends Controller
 
         });
         if ($validator->fails()) {
-            return redirect()->back()->withErrors($validator->getMessageBag());
+            return redirect()->back()->withErrors($validator->getMessageBag())->withInput();
         } else {
             $userId = $request->user()->id;
             $startLoc = Location::where('hash', config('game.start_locs.' . $data["race"]))->first();
