@@ -22,7 +22,7 @@ class Territory extends Model
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function continent(){
-        return $this->belongsTo('App\Continent', 'foreign_key', 'cont_id');
+        return $this->belongsTo('App\Continent', 'cont_id');
     }
 
     /**

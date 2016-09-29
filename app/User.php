@@ -33,7 +33,25 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function heroes(){
         return $this->hasMany('App\Hero');
+    }
+
+    /**
+     * @param $heroId
+     * @return $this|bool
+     */
+    public function heroExists($heroId){
+        $heroes = collect($this->heroes());
+        $exists = false;
+        $heroes->each(function($hero)use($heroId, $exists){
+            if($hero->id == $heroId){
+                $exists = true;
+            }
+        });
+        return  $exists;
     }
 }

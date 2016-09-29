@@ -21,13 +21,17 @@ class Location extends Model
         return $this->hasMany('App\OnlineHeroes');
     }
 
+    public function offlineUsers(){
+        $this->belongsTo('App\Hero', 'loc_offline');
+    }
+
     public function layer(){
         return $this->belongsTo('App\LocationLayer', 'layer_id');
     }
 
-    protected function getDoorsAttribute($doors){
+    /*protected function getDoorsAttribute($doors){
         return preg_split('|', $doors);
-    }
+    }*/
 
     protected function setDoorsAttribute(array $doors){
         $this->attributes['doors'] = implode('|', $doors);

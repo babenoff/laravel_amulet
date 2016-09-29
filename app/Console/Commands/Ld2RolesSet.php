@@ -50,7 +50,7 @@ class Ld2RolesSet extends Command
     {
         //
         $pwd = $this->secret('Введите пароль:');
-        if ($pwd == Config::get('game.console.pwd')) {
+        if ($pwd == Config::get('Game.console.pwd')) {
             $email = $this->argument('email');
             if(!$email){
                 $email = $this->ask('Введите E-Mail:');

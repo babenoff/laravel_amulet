@@ -33,6 +33,6 @@ class CreateNpcsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('npcs');
+        Schema::dropIfExists('npc_lib');
     }
 }

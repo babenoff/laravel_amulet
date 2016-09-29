@@ -36,5 +36,12 @@ return [
             [[0,50],    2],
             [[50,55],   5]
         ]
+    ],
+
+    'start_locs' => [
+        'elf' => 'west.w_gweonid_forest.base_layer.0x0',
+        'fer' => 'east.e_tiger_spine_mountains.base_layer.0x0',
+        'nui' => 'west.w_solzreed.base_layer.0x3',
+        'har' => 'east.e_falcony_plateau.base_layer.0x0'
     ]
 ];

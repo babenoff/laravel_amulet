@@ -33,6 +33,13 @@
                                                 </div>
                                                 <div class="panel-info">
                                                     <p><strong>{{$hero->name}}</strong></p>
+                                                    <p>
+                                                        {{ $hero->locOffline->layer->territory->continent->title }},
+                                                        {{ $hero->locOffline->layer->territory->title }}
+                                                        @if($hero->locOffline->layer->territory->title != $hero->locOffline->layer->title)
+                                                            ,{{ $hero->locOffline->layer->title }}
+                                                            @endif
+                                                    </p>
                                                     <div class="trees">
                                                         @foreach($skills_tree[$hero->id] as $key => $skill)
                                                             <div class="tree" style="margin-left: {{ 4+14*$key }}px;" data-toggle="tooltip" data-placement="right" title="@if(Lang::has('skills.classes.'.$hero->hero_class))
@@ -53,7 +60,12 @@
                                                         </span>
                                                     </p>--}}
                                                 </div>
-                                                <div class="ri"
+                                                <div class="panel-info">
+                                                    <div class="btn-group-vertical" role="group" aria-label="{{ trans('Game') }}">
+                                                        <a class="btn btn-success" href="{{ route('connect-game', ['heroId' => $hero->id])  }}">в игру</a>
+                                                        <a class="btn btn-danger" href="{{ route('remove-hero', ['heroId' => $hero->id])  }}">удалить</a>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </li>

@@ -8,6 +8,9 @@ use App\Hero;
 //use Illuminate\Contracts\Validation\Validator;
 use App\HeroProfessions;
 use App\HeroStatistic;
+use App\Location;
+use App\OnlineHeroes;
+use App\User;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Request;
 
@@ -15,6 +18,7 @@ use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Lang;
+use Illuminate\Support\Facades\Session;
 
 class LobbyController extends Controller
 {
@@ -24,10 +28,44 @@ class LobbyController extends Controller
         $this->middleware('auth');
     }
 
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $heroes = DB::select('select * from heroes where user_id = :uid', ['uid' => Auth::user()->id]);
+        $tree = [];
+        $test = FIGHT|FORTIFICATION|WILL;
+        $treeCount = count(trans('skills.tree'));
+        foreach ($heroes as $hero){
+            $tree[$hero->id] = [];
+            $class = $hero->hero_class;
+            for($i = 0; $i < $treeCount; $i++){
+                $flag=(int)$class;
+                $flag=$flag>>$i;
+                if($flag>0)
+                    $cBits=log($flag,2);
+                else $cBits=0;
+                $newFlag=$flag|1;
+                if($newFlag==$flag){
+                    array_push($tree[$hero->id], 1<<$i);
+                    //$tree[$hero->id][$i] = 1<<$i;
+                }
+            }
+        }
+        $hrs = Auth::user()->heroes;
+        return view('home', [
+            'heroes' => $heroes,
+            'skills_tree' => $tree
+        ]);
+    }
+
     public function showNewHeroForm()
     {
         $heroes = DB::select('select * from heroes where user_id = :uid', ['uid' => Auth::user()->id]);
-        if(count($heroes) < config('game.max_heroes')) {
+        if(count($heroes) < config('Game.max_heroes')) {
             return view('new_hero', [
                 'start_skills' => [
                     FIGHT => trans('skills.tree.' . FIGHT),
@@ -56,6 +94,7 @@ class LobbyController extends Controller
             return redirect()->back()->withErrors($validator->getMessageBag());
         } else {
             $userId = $request->user()->id;
+            $startLoc = Location::where('hash', config('Game.start_locs.'.$data["race"]))->first();
             $hero = new Hero([
                 'name' => $data["hero_name"],
                 'location' => 'loc_test',
@@ -165,7 +204,8 @@ class LobbyController extends Controller
                     'slot19' => [],
                     'slot20' => [],
                 ],
-                'money' => [0,0,0,0,0,0,0]
+                'money' => [0,0,0,0,0,0,0],
+                'loc_offline' => $startLoc
             ]);
             //$heroStatistic = new HeroStatistic();
             $hero->calculate();
@@ -183,5 +223,25 @@ class LobbyController extends Controller
             'sex' => 'required|in:male,female',
             'race' => 'required|in:nui,har,elf,fer'
         ];
+    }
+
+    public function connect(Request $request){
+        /** @var User $user */
+        $user = $request->user();
+        $heroId = $request->get('heroId');
+        if($user->heroExists($heroId)){
+            Session::put('heroId', $heroId);
+            /** @var Hero $hero */
+            $hero = Hero::find($heroId);
+            $locOffline = $hero->locOffline();
+            $online = OnlineHeroes::where('hero_id', $heroId)->get();
+            if(count($online) < 1){
+                OnlineHeroes::create([
+                    'hero_id' => $heroId,
+                    'loc_id' => $locOffline->id
+                ]);
+            }
+            return redirect('/Game');
+        }
     }
 }

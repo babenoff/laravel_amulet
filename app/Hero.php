@@ -30,7 +30,8 @@ class Hero extends Model
         'inventory',
         'bank',
         'equip',
-        'money'
+        'money',
+        'loc_offline'
     ];
 
     public function user() {
@@ -43,6 +44,13 @@ class Hero extends Model
 
     public function statistic() {
         return $this->hasOne('App\HeroStatistic');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function locOffline(){
+        return $this->hasOne('App\Location', 'hash', 'loc_offline');
     }
 
     public function calculate($newHero = false){
@@ -150,4 +158,15 @@ class Hero extends Model
     protected function setMoneyAttribute(array $money){
         $this->attributes['money'] = json_encode($money);
     }
+
+    protected function setLocOfflineAttribute(Location $locOffline){
+        if(!$locOffline->id){
+            $locOffline->save();
+        }
+        $this->attributes['loc_offline'] = $locOffline->hash;
+    }
+
+    /*protected function getLocOfflineAttribute($val){
+        return Location::where('hash', $val)->first();
+    }*/
 }

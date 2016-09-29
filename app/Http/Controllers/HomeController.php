@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -25,7 +26,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $heroes = DB::select('select * from heroes where user_id = :uid', ['uid' => Auth::user()->id]);
+        /** @var User $user */
+        $user = Auth::user();
+        $heroes = $user->heroes()->getEager()->all();
         $tree = [];
         $test = FIGHT|FORTIFICATION|WILL;
         $treeCount = count(trans('skills.tree'));
@@ -45,7 +48,6 @@ class HomeController extends Controller
                 }
             }
         }
-        $hrs = Auth::user()->heroes;
         return view('home', [
             'heroes' => $heroes,
             'skills_tree' => $tree

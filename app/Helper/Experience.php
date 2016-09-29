@@ -31,7 +31,7 @@ class Experience extends \ArrayIterator
      */
     public static function factory()
     {
-        $maxLevel = Config::get('game.max_level');
+        $maxLevel = Config::get('Game.max_level');
         $level = 0;
         $expTable = [];
         do {

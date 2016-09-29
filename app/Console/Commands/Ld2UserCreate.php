@@ -55,7 +55,7 @@ class Ld2UserCreate extends Command
         }
         $pwd = $this->secret('Пароль');
         $pwd_c = $this->secret('Повторите пароль');
-        $rules = Config::get('game.validation.user');
+        $rules = Config::get('Game.validation.user');
         $udata = [
             'name' => $name,
             'email' => $email,

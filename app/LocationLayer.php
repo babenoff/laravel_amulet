@@ -15,7 +15,7 @@ class LocationLayer extends Model
     ];
 
     public function territory(){
-        return $this->belongsTo('App\Territory', 'id', 'terr_id');
+        return $this->belongsTo('App\Territory', 'terr_id');
     }
 
     /**
