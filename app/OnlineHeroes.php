@@ -19,12 +19,23 @@ class OnlineHeroes extends Model
         'update_at'
     ];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function hero(){
         return $this->belongsTo('App\Hero');
     }
 
     public function loc(){
-        return $this->belongsTo('App\GameLocation', 'foreign_key', 'loc_id');
+        return $this->belongsTo('App\Location', 'loc_id');
+    }
+
+    protected function setLocIdAttribute(Location $loc){
+        $this->attributes['loc_id'] = $loc->id;
+    }
+
+    protected function setHeroIdAttribute(Hero $hero){
+        $this->attributes['hero_id'] = $hero->id;
     }
 
 }

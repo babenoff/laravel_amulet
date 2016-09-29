@@ -53,6 +53,14 @@ class Hero extends Model
         return $this->hasOne('App\Location', 'hash', 'loc_offline');
     }
 
+    public function toOffline() {
+        /** @var OnlineHeroes $online */
+        $online = OnlineHeroes::where('hero_id', $this->id)->first();
+        $locOffline = $online->loc;
+        $this->loc_offline = $locOffline;
+        $this->save();
+    }
+
     public function calculate($newHero = false){
         $char = $this->hero_char;
         $stats = $this->hero_stats;
@@ -160,10 +168,9 @@ class Hero extends Model
     }
 
     protected function setLocOfflineAttribute(Location $locOffline){
-        if(!$locOffline->id){
-            $locOffline->save();
-        }
-        $this->attributes['loc_offline'] = $locOffline->hash;
+            $race = $this->attributes['hero_race'];
+            $hash = (is_null($locOffline->hash)) ? config('game.start_locs.'.$race) : $locOffline->hash;
+        $this->attributes['loc_offline'] = $hash;
     }
 
     /*protected function getLocOfflineAttribute($val){

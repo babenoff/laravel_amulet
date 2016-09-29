@@ -46,22 +46,22 @@
                                 <div class="col-md-6 col-md-offset-4">
                                     <div class="radio">
                                         <label>
-                                            <input type="radio" name="race" value="nui" checked> Нуиане
+                                            <input type="radio" name="race" value="nui" checked> @lang('game.races.nui')
                                         </label>
                                     </div>
                                     <div class="radio">
                                         <label>
-                                            <input type="radio" name="race" value="elf"> Эльфы
+                                            <input type="radio" name="race" value="elf"> @lang('game.races.elf')
                                         </label>
                                     </div>
                                     <div class="radio">
                                         <label>
-                                            <input type="radio" name="race" value="har"> Харнийцы
+                                            <input type="radio" name="race" value="har"> @lang('game.races.har')
                                         </label>
                                     </div>
                                     <div class="radio">
                                         <label>
-                                            <input type="radio" name="race" value="fer"> Феррэ
+                                            <input type="radio" name="race" value="fer"> @lang('game.races.fer')
                                         </label>
                                     </div>
                                 </div>

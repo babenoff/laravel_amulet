@@ -17,6 +17,7 @@ class HomeController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('in.game');
     }
 
     /**
@@ -24,33 +25,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        /** @var User $user */
-        $user = Auth::user();
-        $heroes = $user->heroes()->getEager()->all();
-        $tree = [];
-        $test = FIGHT|FORTIFICATION|WILL;
-        $treeCount = count(trans('skills.tree'));
-        foreach ($heroes as $hero){
-            $tree[$hero->id] = [];
-            $class = $hero->hero_class;
-            for($i = 0; $i < $treeCount; $i++){
-                $flag=(int)$class;
-                $flag=$flag>>$i;
-                if($flag>0)
-                    $cBits=log($flag,2);
-                else $cBits=0;
-                $newFlag=$flag|1;
-                if($newFlag==$flag){
-                    array_push($tree[$hero->id], 1<<$i);
-                   //$tree[$hero->id][$i] = 1<<$i;
-                }
-            }
-        }
-        return view('home', [
-            'heroes' => $heroes,
-            'skills_tree' => $tree
-        ]);
+    public function index() {
+        return redirect()->route('game-main');
     }
 }

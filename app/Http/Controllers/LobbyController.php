@@ -25,6 +25,7 @@ class LobbyController extends Controller
     //
     public function __construct()
     {
+        //$this->middleware('web');
         $this->middleware('auth');
     }
 
@@ -33,39 +34,43 @@ class LobbyController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $heroes = DB::select('select * from heroes where user_id = :uid', ['uid' => Auth::user()->id]);
+        /** @var User $user */
+        $user = $request->user();
+        $heroes = $user->heroes()->getEager()->all();
         $tree = [];
-        $test = FIGHT|FORTIFICATION|WILL;
+        $test = FIGHT | FORTIFICATION | WILL;
         $treeCount = count(trans('skills.tree'));
-        foreach ($heroes as $hero){
+        foreach ($heroes as $hero) {
             $tree[$hero->id] = [];
             $class = $hero->hero_class;
-            for($i = 0; $i < $treeCount; $i++){
-                $flag=(int)$class;
-                $flag=$flag>>$i;
-                if($flag>0)
-                    $cBits=log($flag,2);
-                else $cBits=0;
-                $newFlag=$flag|1;
-                if($newFlag==$flag){
-                    array_push($tree[$hero->id], 1<<$i);
+            for ($i = 0; $i < $treeCount; $i++) {
+                $flag = (int)$class;
+                $flag = $flag >> $i;
+                if ($flag > 0)
+                    $cBits = log($flag, 2);
+                else $cBits = 0;
+                $newFlag = $flag | 1;
+                if ($newFlag == $flag) {
+                    array_push($tree[$hero->id], 1 << $i);
                     //$tree[$hero->id][$i] = 1<<$i;
                 }
             }
         }
-        $hrs = Auth::user()->heroes;
         return view('home', [
             'heroes' => $heroes,
-            'skills_tree' => $tree
+            'skills_tree' => $tree,
+            'errors' => $request->session()->get('errors', [])
         ]);
     }
 
-    public function showNewHeroForm()
+    public function showNewHeroForm(Request $req)
     {
-        $heroes = DB::select('select * from heroes where user_id = :uid', ['uid' => Auth::user()->id]);
-        if(count($heroes) < config('Game.max_heroes')) {
+        /** @var User $user */
+        $user = $req->user();
+        $heroes = $user->heroes()->getEager()->all();
+        if (count($heroes) < config('game.max_heroes')) {
             return view('new_hero', [
                 'start_skills' => [
                     FIGHT => trans('skills.tree.' . FIGHT),
@@ -77,8 +82,8 @@ class LobbyController extends Controller
                 ],
             ]);
         } else {
-            return redirect()->back()->withErrors([
-                "Превышен лимит на создание героев"
+            return redirect()->back()->with('errors', [
+                trans('errors.game.heroes_limit')
             ]);
         }
     }
@@ -86,15 +91,16 @@ class LobbyController extends Controller
     public function newHero(Request $request)
     {
         $data = $request->all();
-        $v = $this->getValidationFactory(); $validator = $v->make($request->all(), $this->rules());
-        $validator->after(function($val){
+        $v = $this->getValidationFactory();
+        $validator = $v->make($request->all(), $this->rules());
+        $validator->after(function ($val) {
 
         });
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator->getMessageBag());
         } else {
             $userId = $request->user()->id;
-            $startLoc = Location::where('hash', config('Game.start_locs.'.$data["race"]))->first();
+            $startLoc = Location::where('hash', config('Game.start_locs.' . $data["race"]))->first();
             $hero = new Hero([
                 'name' => $data["hero_name"],
                 'location' => 'loc_test',
@@ -145,7 +151,7 @@ class LobbyController extends Controller
                         ]
                     ],
                     'defence' => [
-                        'hp' => [0,0],
+                        'hp' => [0, 0],
                         'def' => [
                             'phys' => 0,
                             'magic' => 0
@@ -166,7 +172,7 @@ class LobbyController extends Controller
                         ]
                     ],
                     'other' => [
-                        'mp' => [0,0],
+                        'mp' => [0, 0],
                         'cast' => 100,
                         'att_speed' => [
                             'speed' => 100,
@@ -204,7 +210,7 @@ class LobbyController extends Controller
                     'slot19' => [],
                     'slot20' => [],
                 ],
-                'money' => [0,0,0,0,0,0,0],
+                'money' => [0, 0, 0, 0, 0, 0, 0],
                 'loc_offline' => $startLoc
             ]);
             //$heroStatistic = new HeroStatistic();
@@ -212,7 +218,7 @@ class LobbyController extends Controller
             $request->user()->heroes()->save($hero);
             $hero->statistic()->save(new HeroStatistic());
             $hero->professions()->save(new HeroProfessions());
-            return redirect('/lobby');
+            return redirect()->route('lobby');
         }
     }
 
@@ -225,23 +231,29 @@ class LobbyController extends Controller
         ];
     }
 
-    public function connect(Request $request){
+    public function connect(Request $request)
+    {
         /** @var User $user */
         $user = $request->user();
         $heroId = $request->get('heroId');
-        if($user->heroExists($heroId)){
-            Session::put('heroId', $heroId);
+        if ($user->heroExists($heroId)) {
+            $session = $request->session();
+            $session->put('heroId', $heroId);
             /** @var Hero $hero */
             $hero = Hero::find($heroId);
-            $locOffline = $hero->locOffline();
-            $online = OnlineHeroes::where('hero_id', $heroId)->get();
-            if(count($online) < 1){
+            $locOffline = $hero->locOffline;
+            $online = OnlineHeroes::where('hero_id', $heroId)->first();
+            if (is_null($online)) {
                 OnlineHeroes::create([
-                    'hero_id' => $heroId,
-                    'loc_id' => $locOffline->id
+                    'hero_id' => $hero,
+                    'loc_id' => $locOffline
                 ]);
             }
-            return redirect('/Game');
+            return redirect()->route('game-main');
+        } else {
+            return redirect()->route('lobby')->with('errors', [
+               'Ошибка загрузки героя'
+            ]);
         }
     }
 }

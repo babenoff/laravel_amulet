@@ -45,13 +45,26 @@ class User extends Authenticatable
      * @return $this|bool
      */
     public function heroExists($heroId){
-        $heroes = collect($this->heroes());
+        $heroes = $this->heroes();
         $exists = false;
-        $heroes->each(function($hero)use($heroId, $exists){
-            if($hero->id == $heroId){
+        $heroes->getEager()->each(function($hero)use($heroId, &$exists){
+            if((int)$heroId == $hero->id){
                 $exists = true;
+                return;
             }
         });
-        return  $exists;
+        return $exists;
+    }
+
+    public function hero($id){
+        $heroes = $this->heroes();
+        $currHero = $heroes->getEager()->first();
+        $heroes->getEager()->each(function($hero)use($id, $currHero){
+            if($hero->id == $id){
+                $currHero = $hero;
+                return;
+            }
+        });
+        return $currHero;
     }
 }

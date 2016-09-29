@@ -12,7 +12,10 @@
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
-
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
     <!-- Scripts -->
     <script>
         window.Likedimion = <?php echo json_encode([
@@ -42,7 +45,8 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    &nbsp;
+                    &nbsp;<li><a class="text-capitalize" href="{{ route('hero') }}">@lang('ui.label.hero')</a></li>
+                    <li><a class="text-capitalize" href="{{ route('inventory') }}">@lang('ui.label.inventory')</a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
@@ -54,20 +58,14 @@
                     @else
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                {{ Auth::user()->name }} <span class="caret"></span>
+                                {{ Auth::user()->hero(session('heroId'))->name }} <span class="caret"></span>
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
                                 <li>
-                                    <a class="btn btn-link btn-danger" href="{{ url('/logout') }}"
-                                        onclick="event.preventDefault();
-                                                 document.getElementById('logout-form').submit();">
-                                        Выход
+                                    <a class="btn btn-link btn-danger" href="{{ route('disconnect') }}">
+                                        {{ trans('ui.label.logout') }}
                                     </a>
-
-                                    <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-                                        {{ csrf_field() }}
-                                    </form>
                                 </li>
                             </ul>
                         </li>

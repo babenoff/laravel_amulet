@@ -50,3 +50,19 @@
 .bold {
   font-weight: bold;
 }
+
+.climat-medium {
+  color: $brand-warning
+}
+
+.climat-hot {
+  color: $brand-danger
+}
+
+.climat-tropical {
+  color: $brand-success
+}
+
+.climat-cold {
+  color: $brand-primary
+}

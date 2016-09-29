@@ -17,26 +17,36 @@ Route::get('/', 'HomeController@index');
 
 Auth::routes();
 
+Route::get('/lobby', [
+    'as' => 'lobby',
+    'uses' => 'LobbyController@index'
+]);
 
-Route::get('/lobby', 'LobbyController@index');
-Route::get('/new-hero', 'LobbyController@showNewHeroForm');
+
+Route::get('/new-hero', [
+    'as' => 'new-hero',
+    'uses' => 'LobbyController@showNewHeroForm'
+]);
+
 Route::post('/new-hero', 'LobbyController@newHero');
-Route::get('/connect/{heroId}', [
-    'as' => 'connect-game',
-    'uses' => 'LobbyController@connect'
-])->where('heroId', '[0-9]+');
-Route::get('/remove-hero/{heroId}', [
+
+Route::post('/remove-hero', [
     'as' => 'remove-hero',
     'uses' => 'LobbyController@remove'
 ])->where('heroId', '[0-9]+');
 
 Route::group([
     'prefix' => 'game',
-    'middleware' => 'in.game'
+    'middleware' => 'web'
 ],
     function () {
+        Route::post('/connect', [
+            'as' => 'connect-game',
+            'uses' => 'LobbyController@connect'
+        ]);
+
         Route::get('/', [
-           'as' => 'game-main',
+            'as' => 'game-main',
             'uses' => 'GameController@main'
         ]);
 
@@ -44,4 +54,19 @@ Route::group([
             'as' => 'go',
             'uses' => 'GameController@move'
         ])->where('locId', '^(?<continentId>.*)\.(?<territoryId>.*)\.(?<layerId>.*)\.(?<positionId>.*)$');
+
+        Route::get('/disconnect', [
+            'as' => 'disconnect',
+            'uses' => 'GameController@disconnect'
+        ]);
+
+        Route::get('/hero', [
+           'uses' => 'GameController@hero',
+            'as' => 'hero'
+        ]);
+
+        Route::get('/inventory', [
+            'uses' => 'GameController@inventory',
+            'as' => 'inventory'
+        ]);
     });

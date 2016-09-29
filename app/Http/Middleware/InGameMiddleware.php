@@ -16,8 +16,9 @@ class InGameMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if(false === Session::get('heroId', false)){
-            return redirect('/lobby');
+        $session = $request->session();
+        if(false === $session->get('heroId', false)){
+            return redirect()->route('lobby');
         }
         return $next($request);
     }
