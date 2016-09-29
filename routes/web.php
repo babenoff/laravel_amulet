@@ -69,4 +69,9 @@ Route::group([
             'uses' => 'GameController@inventory',
             'as' => 'inventory'
         ]);
+
+        Route::get('/settings', [
+            'uses' => 'GameController@settings',
+            'as' => 'game-settings'
+        ]);
     });

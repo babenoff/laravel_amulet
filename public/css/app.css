@@ -5766,9 +5766,6 @@ button.close {
   .hidden-print {
     display: none !important; } }
 
-/*body {
-  background: url("../images/bg.jpg");
-}*/
 .list-group li {
   list-style: none; }
 

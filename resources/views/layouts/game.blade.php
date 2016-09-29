@@ -63,6 +63,11 @@
 
                             <ul class="dropdown-menu" role="menu">
                                 <li>
+                                    <a class="btn btn-link btn-danger" href="{{ route('game-settings') }}">
+                                        {{ trans('ui.label.settings') }}
+                                    </a>
+                                </li>
+                                <li>
                                     <a class="btn btn-link btn-danger" href="{{ route('disconnect') }}">
                                         {{ trans('ui.label.logout') }}
                                     </a>

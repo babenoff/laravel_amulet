@@ -13,7 +13,8 @@ return [
         'remove' => 'удалить',
         'logout' => 'выход',
         'hero' => 'персонаж',
-        'inventory' => 'инвентарь'
+        'inventory' => 'инвентарь',
+        'settings' => 'настройки'
     ],
     'climate' => [
         'label' => 'климат',
