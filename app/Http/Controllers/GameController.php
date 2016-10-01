@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Hero;
+use App\Location;
 use App\OnlineHeroes;
 use Illuminate\Http\Request;
 
@@ -16,24 +17,16 @@ class GameController extends Controller
      * @var OnlineHeroes
      */
     protected $game;
+    /**
+     * @var array
+     */
+    protected $loadedLoc = [];
 
     public function __construct()
     {
         $this->middleware('in.game');
         $this->middleware(function (Request $request, \Closure $next) {
-            $session = $request->session();
-            $heroId = $session->get('heroId');
-                // $heroId = $request->session()->get('heroId');
-                //$heroId = $request->session()->get('heroId');
-                $onlineHero = OnlineHeroes::where(
-                    'hero_id', $heroId
-                )->first();
-            if(!is_null($onlineHero)) {
-                $this->game = $onlineHero;
-            } else {
-                $session->forget('heroId');
-                return redirect()->route('lobby')->with('errors', ['Ошибка загрузки героя']);
-            }
+            $this->loadGame($request);
             return $next($request);
         });
 
@@ -72,10 +65,52 @@ class GameController extends Controller
         ]);
     }
 
+    public function move($locId, Request $request)
+    {
+        $hero = $this->game->hero;
+        $oldLoc = $this->game->loc;
+        $oldLocDoors = $oldLoc->doors;
+        $newLoc = Location::where('hash', $locId)->first();
+        if (!is_null($newLoc) and in_array($locId, $oldLocDoors) and in_array($oldLoc->hash, $newLoc->doors)) {
+            OnlineHeroes::destroy($this->game->id);
+            OnlineHeroes::create([
+               'hero_id' => $hero,
+                'loc_id' => $newLoc
+            ]);
+        }
+        $this->loadGame($request);
+        return $this->main();
+    }
+
     public function disconnect(Request $req)
     {
         $this->game->hero->toOffline();
         $req->session()->forget('heroId');
         return redirect()->route('lobby')->with('errors', ['Ваш герой покинет игру в течение нескольких минут']);
+    }
+
+    private function loadGame(Request $request)
+    {
+        $session = $request->session();
+        $heroId = $session->get('heroId');
+        // $heroId = $request->session()->get('heroId');
+        //$heroId = $request->session()->get('heroId');
+        $onlineHero = OnlineHeroes::where(
+            'hero_id', $heroId
+        )->first();
+        if (!is_null($onlineHero)) {
+            $this->game = $onlineHero;
+            $loc = $onlineHero->loc;
+            $this->loadedLoc[$loc->hash] = $onlineHero->loc;
+            for ($i = 1; $i < count($loc->doors); $i++){
+                $locI = Location::where('hash', $loc->doors[$i])->first();
+                if(!is_null($locI)) {
+                    $this->loadedLoc[$loc->doors[$i]] = $locI;
+                }
+            }
+        } else {
+            $session->forget('heroId');
+            return redirect()->route('lobby')->with('errors', ['Load hero error']);
+        }
     }
 }

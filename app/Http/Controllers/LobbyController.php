@@ -45,6 +45,11 @@ class LobbyController extends Controller
         $test = FIGHT | FORTIFICATION | WILL;
         $treeCount = count(trans('skills.tree'));
         foreach ($heroes as $hero) {
+            $lO = $hero->loc_offline;
+            if(is_null($lO)){
+                $hero->loc_offline = Location::where('hash', config('game.start_locs.'.$hero->hero_race))->first();
+            }
+            $hero->save();
             $tree[$hero->id] = [];
             $class = $hero->hero_class;
             for ($i = 0; $i < $treeCount; $i++) {

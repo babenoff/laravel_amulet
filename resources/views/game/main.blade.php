@@ -37,7 +37,9 @@
                     <div class="panel-body">
                         <div>
                             @for($i = 0; $i < count($doors); $i+=2)
-                                <a class="btn btn-link" href="{{ route('go', ['locId' => $doors[$i+1]]) }}">{{$doors[$i]}}</a>
+                                <span>
+                                    <a class="btn btn-link" href="{{ route('go', ['locId' => $doors[$i+1]]) }}">{{$doors[$i]}}</a>
+                                </span>
                             @endfor
                         </div>
                     </div>

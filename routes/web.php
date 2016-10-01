@@ -44,7 +44,7 @@ Route::group([
     function () {
         Route::post('/connect', ['as' => 'connect-game', 'uses' => 'LobbyController@connect']);
         Route::get('', ['as' => 'game-main', 'uses' => 'GameController@main']);
-        Route::get('goto/{locId}', ['as' => 'go', 'uses' => 'GameController@move'])->where('locId', '^(?<continentId>.*)\.(?<territoryId>.*)\.(?<layerId>.*)\.(?<positionId>.*)$');
+        Route::get('goto/{locId}', ['as' => 'go', 'uses' => 'GameController@move'])->where('locId', '^(?<continentId>.*)\.(?<territoryId>.*)\.(?<positionId>.*)$');
         Route::get('disconnect', ['as' => 'disconnect', 'uses' => 'GameController@disconnect']);
         Route::get('hero', ['uses' => 'GameController@hero', 'as' => 'hero']);
         Route::get('inventory', ['uses' => 'GameController@inventory', 'as' => 'inventory']);

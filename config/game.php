@@ -43,5 +43,7 @@ return [
         'fer' => 'west.w_solzreed.1095x240',
         'nui' => 'west.w_solzreed.1095x240',
         'har' => 'west.w_solzreed.1095x240'
-    ]
+    ],
+
+    'races_list' => ['nui', 'har', 'elf', 'fer', 'god']
 ];
