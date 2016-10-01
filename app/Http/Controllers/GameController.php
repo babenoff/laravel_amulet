@@ -26,37 +26,53 @@ class GameController extends Controller
     {
         $this->middleware('in.game');
         $this->middleware(function (Request $request, \Closure $next) {
-            try {
-                $this->loadGame($request);
-            } catch (\Exception $e){
-                $request->session()->forget('heroId');
-                return redirect()->route('lobby')->with('errors', [trans('errors.game.load_game')]);
+            $this->loadGame($request);
+            if(!is_null($this->game)) {
+                $this->game->updated_at = new \DateTime();
+                $this->game->save();
+                collect($this->loadedLoc)->each(function ($location) {
+                    //в оффлайн кого давно не было
+                    $location->heroes->each(function ($onlineHero) {
+                        /** @var OnlineHeroes $onlineHero */
+                        if ($onlineHero->updated_at->getTimestamp() + config("game.time_offline") < time()) {
+                            $onlineHero->hero->toOffline();
+                            $offlineMessgage = trans("game.move.disconnect:" . $onlineHero->hero->hero_sex, ["name" => $onlineHero->hero->name]);
+                            $onlineHero->loc->addToJournalAll($offlineMessgage, [$onlineHero->hero->id]);
+                            $onlineHero->delete();
+                        }
+                    });
+                });
             }
             return $next($request);
         });
 
     }
 
-    public function main()
+    public function main(Request $request)
     {
-        $coordinates = collect(explode(".", $this->game->loc->hash));
-        $coordinate = $coordinates->last();
-        $doors = $this->game->loc->doors;
-        $nbDrs = $this->game->loc->getNeighborsIds();
-        $badDoors = [];
-        for ($i = 0; $i < count($nbDrs); $i++){
-            $nbDoors = $this->loadedLoc[$nbDrs[$i]]->getNeighborsIds();
-            if(!in_array($this->game->loc->hash, $nbDoors)){
-                array_push($badDoors, $nbDrs[$i]);
+        if(!is_null($this->game)) {
+            $coordinates = collect(explode(".", $this->game->loc->hash));
+            $coordinate = $coordinates->last();
+            $doors = $this->game->loc->doors;
+            $nbDrs = $this->game->loc->getNeighborsIds();
+            $badDoors = [];
+            for ($i = 0; $i < count($nbDrs); $i++) {
+                $nbDoors = $this->loadedLoc[$nbDrs[$i]]->getNeighborsIds();
+                if (!in_array($this->game->loc->hash, $nbDoors)) {
+                    array_push($badDoors, $nbDrs[$i]);
+                }
             }
+            return view('game.main', [
+                'game' => $this->game,
+                'coordinate' => explode("x", $coordinate),
+                'doors' => $doors,
+                'bad_doors' => $badDoors,
+                'journal' => $this->game->hero->journal->all()
+            ]);
+        } else {
+            $request->session()->forget('heroId');
+            return redirect()->route('lobby');
         }
-        return view('game.main', [
-            'game' => $this->game,
-            'coordinate' => explode("x", $coordinate),
-            'doors' => $doors,
-            'bad_doors' => $badDoors,
-            'journal' => $this->game->hero->journal->all()
-        ]);
     }
 
     public function hero()
@@ -83,27 +99,29 @@ class GameController extends Controller
     public function move($locId, Request $request)
     {
         try {
-            /** @var Hero $hero */
-            $hero = $this->game->hero;
-            /** @var Location $oldLoc */
-            $oldLoc = $this->game->loc;
-            $oldLocDoors = $oldLoc->doors;
-            $newLoc = Location::where('hash', $locId)->first();
-            if (!is_null($newLoc) and in_array($locId, $oldLocDoors) and in_array($oldLoc->hash, $newLoc->doors)) {
-                OnlineHeroes::destroy($this->game->id);
-                OnlineHeroes::create([
-                    'hero_id' => $hero,
-                    'loc_id' => $newLoc
-                ]);
+            if($locId != $this->game->loc->hash) {
+                /** @var Hero $hero */
+                $hero = $this->game->hero;
+                /** @var Location $oldLoc */
+                $oldLoc = $this->game->loc;
+                $oldLocDoors = $oldLoc->doors;
+                $newLoc = Location::where('hash', $locId)->first();
+                if (!is_null($newLoc) and in_array($locId, $oldLocDoors) and in_array($oldLoc->hash, $newLoc->doors)) {
+                    OnlineHeroes::destroy($this->game->id);
+                    OnlineHeroes::create([
+                        'hero_id' => $hero,
+                        'loc_id' => $newLoc
+                    ]);
+                }
+                $oldDoorI = array_search($locId, $oldLocDoors);
+                $oldLocDoorName = $oldLocDoors[$oldDoorI - 1];
+                $outMsg = trans("game.move.out:" . $hero->hero_sex, ["name" => $hero->name, "to" => $oldLocDoorName]);
+                $this->game->loc->addToJournalAll($outMsg, [$hero->id]);
+                $this->loadGame($request);
+                $comeMsg = trans("game.move.come:" . $hero->hero_sex, ["name" => $hero->name]);
+                $this->game->loc->addToJournalAll($comeMsg, [$hero->id]);
             }
-            $oldDoorI = array_search($locId, $oldLocDoors);
-            $oldLocDoorName = $oldLocDoors[$oldDoorI-1];
-            $outMsg = trans("game.move.out:".$hero->hero_sex, ["name" => $hero->name, "to" => $oldLocDoorName]);
-            $this->game->loc->addToJournalAll($outMsg, [$hero->id]);
-            $this->loadGame($request);
-            $comeMsg = trans("game.move.come:".$hero->hero_sex, ["name" => $hero->name]);
-            $this->game->loc->addToJournalAll($comeMsg, [$hero->id]);
-            return $this->main();
+            return $this->main($request);
         } catch (\ErrorException $e){
             $request->session()->forget('heroId');
             return redirect()->route('lobby')->with('errors', ["Err: ".$e->getMessage()]);
@@ -114,7 +132,7 @@ class GameController extends Controller
     {
         $this->game->hero->toOffline();
         $req->session()->forget('heroId');
-        return redirect()->route('lobby')->with('errors', ['Ваш герой покинет игру в течение нескольких минут']);
+        return redirect()->route('lobby');
     }
 
     private function loadGame(Request $request)
@@ -138,13 +156,12 @@ class GameController extends Controller
             }
         } else {
             $session->forget('heroId');
-            return redirect()->route('lobby')->with('errors', ['Load hero error']);
+            return redirect()->route('lobby')->with('errors', ['Вы слишком долго отсутствовали и ваш персонаж за это время покинул игру']);
         }
     }
 
     public function __destruct()
     {
-        // TODO: Implement __destruct() method.
         $this->game->hero->clearJournal();
         $this->game->hero->save();
     }

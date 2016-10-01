@@ -8,6 +8,7 @@
 return [
     'max_heroes' => 4,
     'max_level' => 55,
+    'time_offline' => 30,
     'skills_tree_icon' => [
         FIGHT => 'fight_mini.png',
         MAGIC => 'magic_mini.png',

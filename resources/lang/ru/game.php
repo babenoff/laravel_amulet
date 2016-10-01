@@ -27,6 +27,10 @@ return [
         "come:male" => "пришел :name",
         "come:female" => "пришла :name",
         "out:male" => ":name ушел :to",
-        "out:female" => ":name ушла :to"
+        "out:female" => ":name ушла :to",
+        "disconnect:male" => ":name исчез",
+        "disconnect:female" => ":name исчезла",
+        "connect:male" => "появился :name",
+        "connect:female" => "появилась :name",
     ]
 ];

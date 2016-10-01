@@ -251,6 +251,7 @@ class LobbyController extends Controller
             $hero = Hero::find($heroId);
             $hero->clearJournal();
             $hero->save();
+            /** @var Location $locOffline */
             $locOffline = $hero->locOffline;
             $online = OnlineHeroes::where('hero_id', $heroId)->first();
             if (is_null($online)) {
@@ -258,6 +259,8 @@ class LobbyController extends Controller
                     'hero_id' => $hero,
                     'loc_id' => $locOffline
                 ]);
+                $msg = trans("game.move.connect:".$hero->hero_sex, ["name" => $hero->name]);
+                $locOffline->addToJournalAll($msg, [$hero->id]);
             }
             return redirect()->route('game-main');
         } else {
