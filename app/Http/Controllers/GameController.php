@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Hero;
 use App\OnlineHeroes;
 use Illuminate\Http\Request;
 
@@ -22,12 +23,17 @@ class GameController extends Controller
         $this->middleware(function (Request $request, \Closure $next) {
             $session = $request->session();
             $heroId = $session->get('heroId');
-            // $heroId = $request->session()->get('heroId');
-            //$heroId = $request->session()->get('heroId');
-            $onlineHero = OnlineHeroes::where(
-                'hero_id', $heroId
-            )->first();
-            $this->game = $onlineHero;
+                // $heroId = $request->session()->get('heroId');
+                //$heroId = $request->session()->get('heroId');
+                $onlineHero = OnlineHeroes::where(
+                    'hero_id', $heroId
+                )->first();
+            if(!is_null($onlineHero)) {
+                $this->game = $onlineHero;
+            } else {
+                $session->forget('heroId');
+                return redirect()->route('lobby')->with('errors', ['Ошибка загрузки героя']);
+            }
             return $next($request);
         });
 
