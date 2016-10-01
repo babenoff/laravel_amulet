@@ -219,7 +219,8 @@ class LobbyController extends Controller
                     'slot20' => [],
                 ],
                 'money' => [0, 0, 0, 0, 0, 0, 0],
-                'loc_offline' => $startLoc
+                'loc_offline' => $startLoc,
+                'journal' => collect([])
             ]);
             //$heroStatistic = new HeroStatistic();
             $hero->calculate();
@@ -248,6 +249,8 @@ class LobbyController extends Controller
             $request->session()->put('heroId', $heroId);
             /** @var Hero $hero */
             $hero = Hero::find($heroId);
+            $hero->clearJournal();
+            $hero->save();
             $locOffline = $hero->locOffline;
             $online = OnlineHeroes::where('hero_id', $heroId)->first();
             if (is_null($online)) {

@@ -16,7 +16,7 @@
                             <p>
                                 {{$game->loc->layer->description}}
                             </p>
-                            @else
+                        @else
                             <div>
                                 @include('game.mixins.loc_title')
                             </div>
@@ -35,12 +35,33 @@
                         </ul>
                     @endif
                     <div class="panel-body">
-                        <div>
-                            @for($i = 0; $i < count($doors); $i+=2)
-                                <span>
-                                    <a class="btn btn-link" href="{{ route('go', ['locId' => $doors[$i+1]]) }}">{{$doors[$i]}}</a>
+                        <div class="row">
+                            <div class="col-md-4">
+                                @include('game.mixins.journal')
+                            </div>
+                            <div class="col-md-4 col-md-offset-3">
+
+                            </div>
+                            <div class="col-md-4 col-md-offset-9">
+
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="panel">
+                                @for($i = 0; $i < count($doors); $i+=2)
+                                    @if(!in_array($doors[$i+1], $bad_doors))
+                                        <span>
+                                    <a class="btn btn-link"
+                                       href="{{ route('go', ['locId' => $doors[$i+1]]) }}">{{$doors[$i]}}</a>
                                 </span>
-                            @endfor
+                                    @else
+                                        <strong>
+                                            <span class="text-muted">{{$doors[$i]}}</span>
+                                        </strong>
+                                    @endif
+                                @endfor
+                            </div>
                         </div>
                     </div>
                 </div>

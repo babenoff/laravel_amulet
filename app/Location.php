@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Model\JournalMsg;
 use Illuminate\Database\Eloquent\Model;
 
 class Location extends Model
@@ -18,7 +19,7 @@ class Location extends Model
     ];
 
     public function heroes(){
-        return $this->hasMany('App\OnlineHeroes');
+        return $this->hasMany('App\OnlineHeroes', 'loc_id');
     }
 
     public function offlineUsers(){
@@ -39,5 +40,24 @@ class Location extends Model
 
     protected function getDoorsAttribute($val){
         return explode("|", $val);
+    }
+
+    public function getNeighborsIds(){
+        $doors = [];
+        $allDoors = $this->doors;
+        for ($i = 1; $i <= count($allDoors); $i+=2){
+            array_push($doors, $allDoors[$i]);
+        }
+        return $doors;
+    }
+
+    public function addToJournalAll($msg, array $blackListIds = []){
+        $this->heroes->each(function($hero)use($blackListIds, $msg){
+            if(!in_array($hero->hero->id, $blackListIds)) {
+                $hero->hero->addMsgToJournal($msg);
+                $hero->hero->save();
+            }
+        });
+        return $this;
     }
 }

@@ -2,8 +2,11 @@
 
 namespace App;
 
+use App\Model\JournalMsg;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Collection;
+
 /**
  * 
  * @package App\Hero
@@ -31,7 +34,8 @@ class Hero extends Model
         'bank',
         'equip',
         'money',
-        'loc_offline'
+        'loc_offline',
+        'journal'
     ];
 
     public function user() {
@@ -44,6 +48,10 @@ class Hero extends Model
 
     public function statistic() {
         return $this->hasOne('App\HeroStatistic');
+    }
+
+    public function settings() {
+        return $this->belongsTo('App\HeroSettings');
     }
 
     /**
@@ -176,4 +184,45 @@ class Hero extends Model
     /*protected function getLocOfflineAttribute($val){
         return Location::where('hash', $val)->first();
     }*/
+    /**
+     * @param $val
+     * @return \Illuminate\Support\Collection
+     */
+    protected function getJournalAttribute($val){
+        $journal = collect(unserialize($val));
+        return $journal;
+    }
+
+    /**
+     * @param Collection $journal
+     */
+    protected function setJournalAttribute(Collection $journal){
+        $this->attributes['journal'] = serialize($journal->all());
+    }
+
+    /**
+     * @param string $msg
+     */
+    public function addMsgToJournal($msg){
+        /** @var Collection $journal */
+        $journal = $this->journal;
+        $journalMsg = new JournalMsg($msg);
+        $journal->push($journalMsg);
+        $this->journal = $journal;
+    }
+
+    public function clearJournal(){
+        $this->journal = collect([]);
+    }
+
+    public function clearOldMessagesFromJournal(){
+        /** @var Collection $journal */
+        $journal = $this->journal;
+        $journal->each(function($msg, $key)use($journal){
+            if($msg->date->getTimestamp() + $this->settings->journal_life < time()) {
+                $journal->forget($key);
+            }
+        });
+        $this->journal = $journal;
+    }
 }
