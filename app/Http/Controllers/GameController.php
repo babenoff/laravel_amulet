@@ -19,10 +19,10 @@ class GameController extends Controller
     public function __construct()
     {
         $this->middleware('in.game');
-        $this->middleware(function(Request $request, \Closure $next){
+        $this->middleware(function (Request $request, \Closure $next) {
             $session = $request->session();
             $heroId = $session->get('heroId');
-           // $heroId = $request->session()->get('heroId');
+            // $heroId = $request->session()->get('heroId');
             //$heroId = $request->session()->get('heroId');
             $onlineHero = OnlineHeroes::where(
                 'hero_id', $heroId
@@ -33,32 +33,41 @@ class GameController extends Controller
 
     }
 
-    public function main(){
-
+    public function main()
+    {
+        $coordinates = collect(explode(".", $this->game->loc->hash));
+        $coordinate = $coordinates->last();
+        $doors = $this->game->loc->doors;
         return view('game.main', [
-            'game' => $this->game
+            'game' => $this->game,
+            'coordinate' => explode("x", $coordinate),
+            'doors' => $doors
         ]);
     }
 
-    public function hero(){
+    public function hero()
+    {
         return view('game.hero', [
             'game' => $this->game,
         ]);
     }
 
-    public function inventory(Request $request){
+    public function inventory(Request $request)
+    {
         return view('game.inventory', [
             'game' => $this->game,
         ]);
     }
 
-    public function skills(Request $request){
+    public function skills(Request $request)
+    {
         return view('game.skills', [
             'game' => $this->game,
         ]);
     }
 
-    public function disconnect(Request $req){
+    public function disconnect(Request $req)
+    {
         $this->game->hero->toOffline();
         $req->session()->forget('heroId');
         return redirect()->route('lobby')->with('errors', ['Ваш герой покинет игру в течение нескольких минут']);

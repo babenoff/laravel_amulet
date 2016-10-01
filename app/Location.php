@@ -34,6 +34,10 @@ class Location extends Model
     }*/
 
     protected function setDoorsAttribute(array $doors){
-        $this->attributes['doors'] = implode('|', $doors);
+        $this->attributes['doors'] = implode("|",$doors);
+    }
+
+    protected function getDoorsAttribute($val){
+        return explode("|", $val);
     }
 }

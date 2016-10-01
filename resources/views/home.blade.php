@@ -26,7 +26,7 @@
                                         <div class="panel panel-default">
                                             <div class="panel-body">
                                                 <div class="panel-more">
-                                                    <img src="{{ url('/images/'.$hero->hero_race.'_logo.jpg') }}"
+                                                    <img src="{{ url('/images/'.$hero->hero_race.'_logo.png') }}"
                                                          height="80"/>
                                                 </div>
                                                 <div class="panel-info">

@@ -11,10 +11,18 @@
                                 @include('game.mixins.loc_title')
                             </p>
                             <p>
+                                @include('game.mixins.coordinate')
+                            </p>
+                            <p>
                                 {{$game->loc->layer->description}}
                             </p>
                             @else
-                            @include('game.mixins.loc_title')
+                            <div>
+                                @include('game.mixins.loc_title')
+                            </div>
+                            <div>
+                                @include('game.mixins.coordinate')
+                            </div>
                         @endif
                     </div>
                     @if(isset($errors))
@@ -27,7 +35,11 @@
                         </ul>
                     @endif
                     <div class="panel-body">
-
+                        <div>
+                            @for($i = 0; $i < count($doors); $i+=2)
+                                <a class="btn btn-link" href="{{ route('go', ['locId' => $doors[$i+1]]) }}">{{$doors[$i]}}</a>
+                            @endfor
+                        </div>
                     </div>
                 </div>
             </div>
