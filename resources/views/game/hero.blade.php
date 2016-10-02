@@ -66,7 +66,11 @@
                                                     <img src="{{asset("images/slots/slot21.png")}}" style="opacity: 0.85;" width="42" border="0">
                                                 </div>
                                             </td>
-                                            <td width="130"></td>
+                                            <td width="130">
+                                                <center>
+                                                    <img src="{{asset("images/races/".$hero->hero_race."_".$hero->hero_sex.".png")}}">
+                                                </center>
+                                            </td>
                                             <td width="45">
                                                 @for($i = 11; $i<=15; $i++)
                                                     <div id="slot{{$i}}" class="slot{{$i}}">
