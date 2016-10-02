@@ -52,7 +52,7 @@
                                 @for($i = 0; $i < count($doors); $i+=2)
                                     @if(!in_array($doors[$i+1], $bad_doors))
                                         <span>
-                                    <a class="btn btn-default btn-outline"
+                                    <a class="btn btn-link"
                                        href="{{ route('go', ['locId' => $doors[$i+1]]) }}">{{$doors[$i]}}</a>
                                 </span>
                                     @else
