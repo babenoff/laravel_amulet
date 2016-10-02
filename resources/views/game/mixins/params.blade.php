@@ -6,19 +6,19 @@
     </div>
     <div class="param-bag nopad">
         @lang("ui.label.milly_att")
-        <span class="abvalue">0</span>
+        <span class="abvalue">{{ $hero->hero_stats["attack"]["boost"]["milly"] }}</span>
     </div>
     <div class="param-bag nopad">
         @lang("ui.label.middle_att")
-        <span class="abvalue">0</span>
+        <span class="abvalue">{{ $hero->hero_stats["attack"]["boost"]["range"] }}</span>
     </div>
     <div class="param-bag nopad">
         @lang("ui.label.magic_boost")
-        <span class="abvalue">0</span>
+        <span class="abvalue">{{ $hero->hero_stats["attack"]["boost"]["magic"] }}</span>
     </div>
     <div class="param-bag nopad">
         @lang("ui.label.heal_boost")
-        <span class="abvalue">0</span>
+        <span class="abvalue">{{ $hero->hero_stats["attack"]["boost"]["magic"] }}</span>
     </div>
     <div class="param-bag nopad">
         @lang("ui.label.defence")
@@ -30,23 +30,23 @@
     </div>
     <div class="param-bag nopad">
         @lang("ui.label.str")
-        <span class="abvalue">0</span>
+        <span class="abvalue">{{ $hero->hero_stats["base"]["str"] }}</span>
     </div>
     <div class="param-bag nopad">
         @lang("ui.label.dex")
-        <span class="abvalue">0</span>
+        <span class="abvalue">{{ $hero->hero_stats["base"]["dex"] }}</span>
     </div>
     <div class="param-bag nopad">
         @lang("ui.label.int")
-        <span class="abvalue">0</span>
+        <span class="abvalue">{{ $hero->hero_stats["base"]["int"] }}</span>
     </div>
     <div class="param-bag nopad">
         @lang("ui.label.wid")
-        <span class="abvalue">0</span>
+        <span class="abvalue">{{ $hero->hero_stats["base"]["wid"] }}</span>
     </div>
     <div class="param-bag nopad">
-        @lang("ui.label.wit")
-        <span class="abvalue">0</span>
+        @lang("ui.label.con")
+        <span class="abvalue">{{ $hero->hero_stats["base"]["con"] }}</span>
     </div>
     </div>
 </div>

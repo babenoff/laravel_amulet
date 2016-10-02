@@ -72,10 +72,39 @@ class Hero extends Model
     public function calculate($newHero = false){
         $char = $this->hero_char;
         $stats = $this->hero_stats;
+        $lvlDown = $char["level"];
+        $lvlHight = 0;
+        if($char["level"] < 1){
+            $char["level"] = 1;
+            $this->hero_char = $char;
+            $lvlDown = 1;
+            $lvlHight = 1;
+        } elseif($char["level"] > 50 and $char["level"] <= config('game.max_level')){
+            $lvlDown = 50;
+            $lvlHight = $char["level"] - 50;
+        } elseif ($char["level"] > config("game.max_level")){
+            $char["level"] = config("game.max_level");
+            $lvlDown = 50;
+            $lvlHight = $char["level"] - 50;
+        }
+
+        $baseStat_I = 8 + $lvlDown * 2 + $lvlHight *10;
+
+        $str_I = $baseStat_I;
+        $dex_I = $baseStat_I;
+        $int_I = $baseStat_I;
+        $con_I = $baseStat_I;
+        $wid_I = $baseStat_I;
+
+        $stats["base"]["str"] = $str_I;
+        $stats["base"]["dex"] = $dex_I;
+        $stats["base"]["int"] = $int_I;
+        $stats["base"]["con"] = $con_I;
+        $stats["base"]["wid"] = $wid_I;
 
 
         $stats["defence"]["hp"][1] = $char["level"] * 150 +
-            $stats["base"]["wit"]*12+100;
+            $stats["base"]["con"]*12+100;
 
         $stats['other']['mp'][1] = $char["level"] * 100 +
             $stats["base"]["int"]*12+100;
@@ -84,7 +113,14 @@ class Hero extends Model
             $stats['other']['mp'][0] = $stats['other']['mp'][1];
         }
 
+        $stats["attack"]["boost"]["milly"] = round($stats["base"]["str"] * 0.2, 2);
+        $stats["attack"]["boost"]["range"] = round($stats["base"]["dex"] * 0.2, 2);
+        $stats["attack"]["boost"]["magic"] = round($stats["base"]["int"] * 0.2, 2);
+        $stats["attach"]["boost"]["heal"] = round($stats["base"]["wid"] * 0.2, 2);
+
         $this->hero_stats = $stats;
+
+        $this->save();
     }
 
     protected function getHeroStatsAttribute($val){

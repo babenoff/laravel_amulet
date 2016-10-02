@@ -28,6 +28,7 @@ class GameController extends Controller
         $this->middleware(function (Request $request, \Closure $next) {
             $this->loadGame($request);
             if(!is_null($this->game)) {
+                $this->game->hero->calculate();
                 $this->game->updated_at = new \DateTime();
                 $this->game->save();
                 collect($this->loadedLoc)->each(function ($location) {
