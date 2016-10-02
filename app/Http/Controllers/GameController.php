@@ -86,7 +86,7 @@ class GameController extends Controller
 
     public function inventory(Request $request)
     {
-        $this->game->hero->addMoney(1222);
+        $this->game->hero->save();
         return view('game.inventory', [
             'game' => $this->game,
             'hero' => $this->game->hero

@@ -40,7 +40,10 @@ class Ld2HeroAddMoney extends Command
     {
         //
         $hero = Hero::where('name', $this->argument('name'))->first();
-        $moneyArr = ["золото", "серебро", "медь"];
+        $moneyArr = ["золото", "серебро", "медь", "дублон", "нуианская монета"];
+        $methodsMap = [
+            'addGold', 'addSilver', 'addCopper', 'addDublon', 'addDelfianStar'
+        ];
         if(!is_null($hero)) {
             $moneyId = $this->choice('Чего хотите добавить?', $moneyArr, 2);
             if($this->option('add')>0){
@@ -49,9 +52,14 @@ class Ld2HeroAddMoney extends Command
                 $count = $this->ask('Сколько '.$moneyId." добавить?");
             }
             $key = array_keys($moneyArr, $moneyId);
-            $hero->addMoney($count, $key[0]);
-            $hero->save();
-            $this->info('Готово');
+            $method = $methodsMap[$key[0]];
+            if(method_exists($hero, $method)){
+                $hero->$method($count);
+                $hero->save();
+                $this->info('Готово');
+            } else {
+                $this->error('Нет такой валюты');
+            }
         } else {
             $this->error("Герой {$this->argument("name")} не найден");
         }
