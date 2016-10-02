@@ -110,10 +110,12 @@
 .info-break-block {
   height: 36px;
 }
+
 #params-container div {
   display: block;
   width: 230px;
 }
+
 .param-bag {
   /*float: left;*/
   text-align: left;
@@ -142,4 +144,9 @@
   height: 1px;
   border-bottom: 1px solid #985f0d;
   position: relative;
+}
+
+.money {
+  margin: -20px 0px;
+  padding: 0 0 10px
 }

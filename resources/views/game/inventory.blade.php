@@ -18,7 +18,11 @@
                         </ul>
                     @endif
                     <div class="panel-body">
-
+                        <div class="row">
+                            <div style="margin-left: 5px">
+                                @include('game.mixins.money', ["money" => $hero->money])
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

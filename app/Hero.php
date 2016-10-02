@@ -261,4 +261,52 @@ class Hero extends Model
         });
         $this->journal = $journal;
     }
+
+    public function deleteMoney($count, $moneyId){
+        if($count > 0){
+
+        }
+    }
+
+    public function addMoney($count, $moneyId = 2){
+        if($count > 0){
+            $moneyArr = $this->money;
+            $this->convertMoney($count, $moneyId, $moneyArr);
+            $heroMoney = $this->money;
+            collect($moneyArr)->each(function($count, $moneyId)use(&$heroMoney){
+                //$heroMoney[$moneyId] += $count;
+            });
+            $this->money = $moneyArr;
+        }
+    }
+
+    protected function convertMoney($count, $moneyId, &$moneyArr = [0,0,0]){
+        switch ($moneyId){
+            case 2:
+                $newCount = $moneyArr[2]+$count;
+                if($newCount < 100){
+                    $moneyArr[2] = $newCount;
+                } else {
+                    $copper = $newCount % 100;
+                    $moneyArr[2] = $copper;
+                    $silver = floor($newCount / 100);
+                    $this->convertMoney($silver, 1, $moneyArr);
+                }
+                break;
+            case 1:
+                $newCount = $moneyArr[$moneyId]+$count;
+                if($newCount < 100){
+                    $moneyArr[1] = $newCount;
+                } else {
+                    $silver = $newCount % 100;
+                    $moneyArr[1] = $silver;
+                    $gold = floor($newCount / 100);
+                    $this->convertMoney($gold, 0, $moneyArr);
+                }
+                break;
+            default:
+                $moneyArr[0] += $count;
+                break;
+        }
+    }
 }

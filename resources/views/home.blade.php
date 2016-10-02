@@ -37,7 +37,8 @@
                                                             ,{{ $hero->locOffline->layer->title }}
                                                         @endif
                                                     </p>
-                                                    <p><strong>{{$hero->name}}</strong></p>
+                                                    <p><strong>{{$hero->name}}, {{$hero->hero_char["level"]}} @lang('ui.label.level')</strong></p>
+                                                    <p>@include('game.mixins.money', ["money" => $hero->money])</p>
                                                     <div class="trees">
                                                         @foreach($skills_tree[$hero->id] as $key => $skill)
                                                             <div class="tree" style="margin-left: {{ 4+14*$key }}px;" data-toggle="tooltip" data-placement="right" title="@if(Lang::has('skills.classes.'.$hero->hero_class))

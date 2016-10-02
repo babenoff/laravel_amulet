@@ -18,6 +18,7 @@ class Kernel extends ConsoleKernel
         'App\Console\Commands\Ld2UserCreate',
         'App\Console\Commands\Ld2UserRemove',
         'App\Console\Commands\Ld2HeroChange',
+        'App\Console\Commands\Ld2HeroAddMoney',
     ];
 
     /**
