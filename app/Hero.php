@@ -134,7 +134,7 @@ class Hero extends Model
 
         $this->hero_stats = $stats;
 
-        $this->save();
+        //$this->save();
     }
 
     protected function getHeroStatsAttribute($val)
