@@ -6,6 +6,7 @@ use App\Hero;
 use Illuminate\Console\Command;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\DB;
+use Symfony\Component\Console\Helper\TableStyle;
 
 class Ld2EconomicCommand extends Command
 {
@@ -66,7 +67,20 @@ class Ld2EconomicCommand extends Command
             $headers,
             [
                 $money->all()
-            ]
+            ], $this->style()
         );
+    }
+
+    protected function style(){
+        // by default, this is based on the default style
+        $style = new TableStyle();
+
+// customize the style
+        $style
+            ->setHorizontalBorderChar('-')
+            ->setVerticalBorderChar('|')
+            ->setCrossingChar('+')
+        ;
+        return $style;
     }
 }

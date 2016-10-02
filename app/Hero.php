@@ -318,7 +318,7 @@ class Hero extends Model
 
     public function removeDelfianStar($count)
     {
-        if($this->enoughMoney($count, self::MONEY_DELFIAN_STAR)) {
+        if ($this->enoughMoney($count, self::MONEY_DELFIAN_STAR)) {
             $this->_removeCustomMoney($count, 4);
         } else {
             throw new NoMoneyExceprion();
@@ -386,7 +386,7 @@ class Hero extends Model
         } else {
             $gold = floor($count / 100);
             $silver = $count % 100;
-            if($gold < 1) {
+            if ($gold < 1) {
                 $gold = 1;
                 $silver = $count;
             }
@@ -407,7 +407,7 @@ class Hero extends Model
         } else {
             $silver = floor($count / 100);
             $copper = $count % 100;
-            if($silver < 1) {
+            if ($silver < 1) {
                 $silver = 1;
                 $copper = $count;
             }
@@ -426,7 +426,28 @@ class Hero extends Model
      */
     public function enoughMoney($count, $moneyId = self::MONEY_COPPER)
     {
-        return ($count > 0) ? $this->money[$moneyId] >= $count : false;
+        $money = $this->money;
+        $res = false;
+        switch ($moneyId) {
+            case self::MONEY_COPPER:
+                if ($money[self::MONEY_COPPER] >= $count) {
+                    $res = true;
+                } else {
+                    $res = $this->enoughMoney(1, self::MONEY_SILVER);
+                }
+                break;
+            case self::MONEY_SILVER:
+                if ($money[self::MONEY_SILVER] >= $count) {
+                    $res = true;
+                } else {
+                    $res = $this->enoughMoney(1, self::MONEY_GOLD);
+                }
+                break;
+            default:
+                $res = $money[$moneyId] >= $count;
+                break;
+        }
+        return $res;
     }
 
     protected function _addCustomMoney($count, $moneyId)
