@@ -18,14 +18,24 @@
                         </ul>
                     @endif
                     <div class="panel-body">
+                        {{----}}
+                        <ul class="nav nav-pills nav-justified">
+                            <li role="presentation" class="active">
+                                <a href="#params" aria-controls="params" role="tab" data-toggle="tab">@lang('ui.label.params')</a>
+                            </li>
+                            <li role="presentation">
+                                <a href="#equip" aria-controls="equip" role="tab" data-toggle="tab">@lang('ui.label.equip')</a>
+                            </li>
+                        </ul>
                         <div class="row">
-                            <div class="col-md-4">
-                                @include('game.mixins.params')
+                            <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane active" id="params">
+                                    @include('game.mixins.params')
+                                </div>
+                                <div role="tabpanel" class="tab-pane" id="equip">
+                                    @include('game.mixins.equip')
+                                </div>
                             </div>
-                            <div class="col-md-4">
-                                @include('game.mixins.equip')
-                            </div>
-                            <div class="col-md-4 col-md-offset-8"></div>
                         </div>
                     </div>
                 </div>

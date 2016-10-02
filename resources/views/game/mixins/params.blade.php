@@ -1,4 +1,5 @@
-<div id="params-container">
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
     <div class="param-bag text-muted border">
         @lang("ui.label.equip_rate")
         <span class="abvalue">0</span>
@@ -46,5 +47,6 @@
     <div class="param-bag nopad">
         @lang("ui.label.wit")
         <span class="abvalue">0</span>
+    </div>
     </div>
 </div>
