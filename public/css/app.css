@@ -5970,4 +5970,33 @@ button.close {
 .info-break-block {
   height: 36px; }
 
+#params-container div {
+  display: block;
+  width: 230px; }
+
+.param-bag {
+  float: left;
+  text-align: left;
+  /*width: 230px;*/
+  padding: 2px 0 6px 5px;
+  font-size: 14px; }
+
+.nopad {
+  padding: 2px 0 0 5px; }
+
+.border {
+  border-bottom: 2px solid #8a6d3b; }
+
+.abvalue {
+  text-align: right;
+  float: right;
+  color: #3097D1;
+  font-weight: bold; }
+
+#params-container > .hr {
+  /*width: 230px;*/
+  height: 1px;
+  border-bottom: 1px solid #985f0d;
+  position: relative; }
+
 /*# sourceMappingURL=app.css.map */

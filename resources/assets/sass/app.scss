@@ -1,13 +1,9 @@
-
 // Fonts
 @import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
-
 // Variables
 @import "variables";
-
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
-
 
 .list-group li {
   list-style: none;
@@ -47,6 +43,7 @@
 .menu {
   cursor: pointer;
 }
+
 .bold {
   font-weight: bold;
 }
@@ -102,7 +99,7 @@
 }
 
 @for $i from 1 through 21 {
-  .slot#{$i}{
+  .slot#{$i} {
     width: 42px;
     height: 42px;
     padding: 5px;
@@ -112,4 +109,37 @@
 
 .info-break-block {
   height: 36px;
+}
+#params-container div {
+  display: block;
+  width: 230px;
+}
+.param-bag {
+  float: left;
+  text-align: left;
+  /*width: 230px;*/
+  padding: 2px 0 6px 5px;
+  font-size: 14px
+}
+
+.nopad {
+  padding: 2px 0 0 5px;
+}
+
+.border {
+  border-bottom: 2px solid #8a6d3b;
+}
+
+.abvalue {
+  text-align: right;
+  float: right;
+  color: $brand-primary;
+  font-weight: bold;
+}
+
+#params-container > .hr {
+  /*width: 230px;*/
+  height: 1px;
+  border-bottom: 1px solid #985f0d;
+  position: relative;
 }
