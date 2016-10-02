@@ -39,6 +39,13 @@ return [
         'money' => 'деньги',
         'level' => 'уровень'
     ],
+    'moneys' => [
+        \App\Hero::MONEY_COPPER => 'медь',
+        \App\Hero::MONEY_SILVER => 'серебро',
+        \App\Hero::MONEY_GOLD => 'золото',
+        \App\Hero::MONEY_DUBLON => 'золотой дублон',
+        \App\Hero::MONEY_DELFIAN_STAR => 'нуианская звезда'
+    ],
     'locations' => [
         'doors' => [
             'rs' => 'по дороге на юг',
