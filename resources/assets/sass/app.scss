@@ -100,3 +100,16 @@
 .btn-danger.btn-outline:hover {
   color: #fff;
 }
+
+@for $i from 1 through 21 {
+  .slot#{$i}{
+    width: 42px;
+    height: 42px;
+    padding: 5px;
+    cursor: pointer;
+  }
+}
+
+.info-break-block {
+  height: 36px;
+}
