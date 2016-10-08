@@ -13,6 +13,6 @@
 
 <template id="hero-journal">
         <journal-message v-for="message in messages" v-bind:msg="message"></journal-message>
-        <a v-if="messages.length() > 0" id="clearJournal" href="#" v-on:click="clear">@lang('ui.label.clear')</a>
+        <a v-if="messages.length > 0" id="clearJournal" href="#" v-on:click="clear">@lang('ui.label.next')</a>
 </template>
 

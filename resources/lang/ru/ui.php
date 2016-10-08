@@ -38,7 +38,9 @@ return [
         'params' => 'Параметры',
         'money' => 'деньги',
         'level' => 'уровень',
-        'craft' => 'ремесло'
+        'craft' => 'ремесло',
+        'clear' => 'очистить',
+        'next' => 'дальше'
     ],
     'moneys' => [
         \App\Hero::MONEY_COPPER => 'медь',
