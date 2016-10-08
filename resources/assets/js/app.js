@@ -1,4 +1,3 @@
-
 /**
  * First we will load all of this project's JavaScript dependencies which
  * include Vue and Vue Resource. This gives a great starting point for
@@ -13,8 +12,49 @@ require('./bootstrap');
  * the application, or feel free to tweak this setup for your needs.
  */
 
-Vue.component('example', require('./components/Example.vue'));
+Vue.component('journal-message', {
+    props: ['msg'],
+    template: '<div class="text-muted">{{ msg.msg }}</div>'
+});
 
-const app = new Vue({
-    el: 'body'
+Vue.component('journal', {
+    template: "#hero-journal",
+    props: ['messages'],
+    created: function () {
+        this.messages = JSON.parse(this.messages);
+    }
+});
+Vue.component('hero', {
+    template: '#hero-template',
+    props: ['hero']
+});
+Vue.component('hero-list', {
+    template: "#hero-list",
+    props: ['location', 'heroes', 'hId'],
+    created: function () {
+        var hl = this;
+        this.$http.get('api/heroes/' + this.location + "?_token=" + window.Likedimion.csrfToken).then(
+            function (data) {
+                //console.log(data.body);
+                hl.heroes = JSON.parse(data.body);
+            }, function (data) {
+                console.log(data.statusText);
+            }
+        );
+    },
+
+    data: function() {
+        return {
+            heroes: []
+        }
+    }
+});
+
+
+
+const journal = new Vue({
+    el: '.journal'
+});
+const heroes = new Vue({
+    el: '.heroes-list'
 });

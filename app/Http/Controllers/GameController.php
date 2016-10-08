@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Hero;
+use App\HeroProfessions;
 use App\Location;
 use App\OnlineHeroes;
 use Illuminate\Http\Request;
@@ -100,6 +101,27 @@ class GameController extends Controller
         ]);
     }
 
+    public function craft(Request $request){
+        /** @var Hero $hero */
+        $hero = $this->game->hero;
+        /** @var HeroProfessions $profs */
+        $profs = $hero->professions;
+        $attrs = $profs->getFillable();
+        //$profs = json_decode($profs, true);
+        $attrs = collect($attrs)->map(function($craft){
+           return trans('ui.craft.'.$craft);
+        });
+        return view('game.craft')->with([
+           'craft' => $attrs,
+            'game' => $this->game
+        ]);
+    }
+    /**
+     * 
+     * @param type $locId
+     * @param Request $request
+     * @return 
+     */
     public function move($locId, Request $request)
     {
         try {

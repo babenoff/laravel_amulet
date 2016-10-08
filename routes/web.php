@@ -50,4 +50,5 @@ Route::group([
         Route::get('inventory', ['uses' => 'GameController@inventory', 'as' => 'inventory']);
         Route::get('settings', ['uses' => 'GameController@settings', 'as' => 'game-settings']);
         Route::get('skills', ['uses' => 'GameController@skills', 'as' => 'skills']);
+        Route::get('craft', ['uses' => 'GameController@craft', 'as' => 'craft']);
     });

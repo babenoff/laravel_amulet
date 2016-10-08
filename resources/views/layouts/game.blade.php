@@ -49,6 +49,7 @@
                     <li id="heroLink"><a class="text-capitalize" href="{{ route('hero') }}"><strong>@lang('ui.label.hero')</strong></a></li>
                     <li id="invLink"><a class="text-capitalize" href="{{ route('inventory') }}"><strong>@lang('ui.label.inventory')</strong></a></li>
                     <li id="skillsLink"><a class="text-capitalize" href="{{ route('skills') }}"><strong>@lang('ui.label.skills')</strong></a></li>
+                    <li id="craftLink"><a class="text-capitalize" href="{{ route('craft') }}"><strong>@lang('ui.label.craft')</strong></a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
@@ -85,7 +86,7 @@
     @yield('content')
 
     <!-- Scripts -->
-    <script src="/js/app.js"></script>
+
     @yield('scripts')
 </body>
 </html>

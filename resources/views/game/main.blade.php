@@ -40,7 +40,7 @@
                                 @include('game.mixins.journal')
                             </div>
                             <div class="col-md-4 col-md-offset-3">
-
+                                @include('game.mixins.heroes')
                             </div>
                             <div class="col-md-4 col-md-offset-9">
 
@@ -68,4 +68,8 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('scripts')
+    <script src="/js/app.js"></script>
 @endsection

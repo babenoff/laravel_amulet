@@ -9,6 +9,7 @@ class HeroProfessions extends Model
     //
     protected $table = 'hero_professions';
     protected $guarded = ['hero_id'];
+
     protected $fillable = [
         'mining',
         'logging',

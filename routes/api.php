@@ -16,3 +16,14 @@ use Illuminate\Http\Request;
 Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:api');
+
+Route::get('/heroes/{locId}', function ($locId, Request $request) {
+    $heroes = collect([]);
+    /** @var \Illuminate\Database\Eloquent\Collection $onlineHeroes */
+    $onlineHeroes = \App\OnlineHeroes::where('loc_id', $locId);
+    $onlineHeroes->each(function ($online) use ($heroes, $request) {
+        $session = $request->user();
+        $heroes->push($online->hero);
+    });
+    return $heroes->toJson();
+})->middleware('auth:api');

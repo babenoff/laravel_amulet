@@ -20,6 +20,8 @@ class Kernel extends ConsoleKernel
         'App\Console\Commands\Ld2HeroChange',
         'App\Console\Commands\Ld2HeroAddMoney',
         'App\Console\Commands\Ld2EconomicCommand',
+        'App\Console\Commands\Ld2JournalServer',
+        'App\Console\Commands\Ld2CreateApiTokens',
     ];
 
     /**
