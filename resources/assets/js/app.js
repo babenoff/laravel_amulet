@@ -22,6 +22,13 @@ Vue.component('journal', {
     props: ['messages'],
     created: function () {
         this.messages = JSON.parse(this.messages);
+    },
+    methods: {
+        clear: function(){
+            this.messages = [];
+            $('#clearJournal').hide()
+            console.log(this.messages)
+        }
     }
 });
 Vue.component('hero', {
