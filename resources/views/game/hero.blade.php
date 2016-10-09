@@ -45,6 +45,7 @@
 @endsection
 
 @section('scripts')
+    <script src="/js/app.js"></script>
     <script type="text/javascript">
         $(function () {
             $('#heroLink').addClass('active');
